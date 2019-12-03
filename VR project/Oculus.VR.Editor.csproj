@@ -11,7 +11,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{E1760D4B-27F7-2DE9-4CB9-D986D003A20D}</ProjectGuid>
+    <ProjectGuid>{CDAB06D5-585B-0390-E7C2-D74AE7A40348}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Oculus.VR.Editor</AssemblyName>
@@ -87,16 +87,16 @@
     <None Include="Assets\Oculus\VR\Editor\network_sec_config.xml" />
     <None Include="Assets\Oculus\VR\Editor\Oculus.VR.Editor.asmdef" />
     <Reference Include="UnityEditor.UI">
-      <HintPath>E:/Programming/Unity/Projects/VR project/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
+      <HintPath>E:/Programming/Unity/Projects/Proyecto-de-grado-VR/VR Project/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.UI">
-      <HintPath>E:/Programming/Unity/Projects/VR project/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
+      <HintPath>E:/Programming/Unity/Projects/Proyecto-de-grado-VR/VR Project/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor.TestRunner">
-      <HintPath>E:/Programming/Unity/Projects/VR project/Library/ScriptAssemblies/UnityEditor.TestRunner.dll</HintPath>
+      <HintPath>E:/Programming/Unity/Projects/Proyecto-de-grado-VR/VR Project/Library/ScriptAssemblies/UnityEditor.TestRunner.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.TestRunner">
-      <HintPath>E:/Programming/Unity/Projects/VR project/Library/ScriptAssemblies/UnityEngine.TestRunner.dll</HintPath>
+      <HintPath>E:/Programming/Unity/Projects/Proyecto-de-grado-VR/VR Project/Library/ScriptAssemblies/UnityEngine.TestRunner.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.AIModule">
       <HintPath>E:/Programming/Unity/Editor/Data/Managed/UnityEngine/UnityEngine.AIModule.dll</HintPath>
@@ -291,7 +291,7 @@
       <HintPath>C:/Program Files (x86)/Microsoft Visual Studio Tools for Unity/15.0/Editor/SyntaxTree.VisualStudio.Unity.Bridge.dll</HintPath>
     </Reference>
     <Reference Include="nunit.framework">
-      <HintPath>E:/Programming/Unity/Projects/VR project/Library/PackageCache/com.unity.ext.nunit@1.0.0/net35/unity-custom/nunit.framework.dll</HintPath>
+      <HintPath>E:/Programming/Unity/Projects/Proyecto-de-grado-VR/VR Project/Library/PackageCache/com.unity.ext.nunit@1.0.0/net35/unity-custom/nunit.framework.dll</HintPath>
     </Reference>
     <Reference Include="mscorlib">
       <HintPath>E:/Programming/Unity/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/mscorlib.dll</HintPath>
@@ -650,7 +650,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="Oculus.VR.csproj">
-      <Project>{956B9BAD-7961-ECC5-EE76-FF19C8007018}</Project>
+      <Project>{4BCFB316-94DA-F0ED-0302-B561BB6375BA}</Project>
       <Name>Oculus.VR</Name>
     </ProjectReference>
   </ItemGroup>

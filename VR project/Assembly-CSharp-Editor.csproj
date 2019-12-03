@@ -11,7 +11,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{9398767B-F709-D6AA-B84F-2EC1E27D954B}</ProjectGuid>
+    <ProjectGuid>{6A39CBAD-FB33-1C98-7252-3B77ED2D4319}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Assembly-CSharp-Editor</AssemblyName>
@@ -90,37 +90,37 @@
     <Compile Include="Assets\Oculus\Spatializer\editor\ONSPPropagationSerializationManager.cs" />
     <Compile Include="Assets\Oculus\Spatializer\editor\ONSPReflectionCustomGUI.cs" />
     <Reference Include="UnityEditor.TestRunner">
-      <HintPath>E:/Programming/Unity/Projects/VR project/Library/ScriptAssemblies/UnityEditor.TestRunner.dll</HintPath>
+      <HintPath>E:/Programming/Unity/Projects/Proyecto-de-grado-VR/VR Project/Library/ScriptAssemblies/UnityEditor.TestRunner.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.TestRunner">
-      <HintPath>E:/Programming/Unity/Projects/VR project/Library/ScriptAssemblies/UnityEngine.TestRunner.dll</HintPath>
+      <HintPath>E:/Programming/Unity/Projects/Proyecto-de-grado-VR/VR Project/Library/ScriptAssemblies/UnityEngine.TestRunner.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Timeline.Editor">
-      <HintPath>E:/Programming/Unity/Projects/VR project/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
+      <HintPath>E:/Programming/Unity/Projects/Proyecto-de-grado-VR/VR Project/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.VSCode.Editor">
-      <HintPath>E:/Programming/Unity/Projects/VR project/Library/ScriptAssemblies/Unity.VSCode.Editor.dll</HintPath>
+      <HintPath>E:/Programming/Unity/Projects/Proyecto-de-grado-VR/VR Project/Library/ScriptAssemblies/Unity.VSCode.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.TextMeshPro.Editor">
-      <HintPath>E:/Programming/Unity/Projects/VR project/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
+      <HintPath>E:/Programming/Unity/Projects/Proyecto-de-grado-VR/VR Project/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.UI">
-      <HintPath>E:/Programming/Unity/Projects/VR project/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
+      <HintPath>E:/Programming/Unity/Projects/Proyecto-de-grado-VR/VR Project/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Timeline">
-      <HintPath>E:/Programming/Unity/Projects/VR project/Library/ScriptAssemblies/Unity.Timeline.dll</HintPath>
+      <HintPath>E:/Programming/Unity/Projects/Proyecto-de-grado-VR/VR Project/Library/ScriptAssemblies/Unity.Timeline.dll</HintPath>
     </Reference>
     <Reference Include="Unity.CollabProxy.Editor">
-      <HintPath>E:/Programming/Unity/Projects/VR project/Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll</HintPath>
+      <HintPath>E:/Programming/Unity/Projects/Proyecto-de-grado-VR/VR Project/Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Rider.Editor">
-      <HintPath>E:/Programming/Unity/Projects/VR project/Library/ScriptAssemblies/Unity.Rider.Editor.dll</HintPath>
+      <HintPath>E:/Programming/Unity/Projects/Proyecto-de-grado-VR/VR Project/Library/ScriptAssemblies/Unity.Rider.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.TextMeshPro">
-      <HintPath>E:/Programming/Unity/Projects/VR project/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
+      <HintPath>E:/Programming/Unity/Projects/Proyecto-de-grado-VR/VR Project/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor.UI">
-      <HintPath>E:/Programming/Unity/Projects/VR project/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
+      <HintPath>E:/Programming/Unity/Projects/Proyecto-de-grado-VR/VR Project/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.AIModule">
       <HintPath>E:/Programming/Unity/Editor/Data/Managed/UnityEngine/UnityEngine.AIModule.dll</HintPath>
@@ -315,7 +315,7 @@
       <HintPath>C:/Program Files (x86)/Microsoft Visual Studio Tools for Unity/15.0/Editor/SyntaxTree.VisualStudio.Unity.Bridge.dll</HintPath>
     </Reference>
     <Reference Include="nunit.framework">
-      <HintPath>E:/Programming/Unity/Projects/VR project/Library/PackageCache/com.unity.ext.nunit@1.0.0/net35/unity-custom/nunit.framework.dll</HintPath>
+      <HintPath>E:/Programming/Unity/Projects/Proyecto-de-grado-VR/VR Project/Library/PackageCache/com.unity.ext.nunit@1.0.0/net35/unity-custom/nunit.framework.dll</HintPath>
     </Reference>
     <Reference Include="mscorlib">
       <HintPath>E:/Programming/Unity/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/mscorlib.dll</HintPath>
@@ -674,19 +674,19 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="Assembly-CSharp.csproj">
-      <Project>{255F5B72-56B9-BE1E-04BA-A8CAA8DD667B}</Project>
+      <Project>{47AA9C18-5C0D-6CBA-E448-04017C163D0B}</Project>
       <Name>Assembly-CSharp</Name>
     </ProjectReference>
     <ProjectReference Include="Oculus.VR.Editor.csproj">
-      <Project>{E1760D4B-27F7-2DE9-4CB9-D986D003A20D}</Project>
+      <Project>{CDAB06D5-585B-0390-E7C2-D74AE7A40348}</Project>
       <Name>Oculus.VR.Editor</Name>
     </ProjectReference>
     <ProjectReference Include="Oculus.VR.Scripts.Editor.csproj">
-      <Project>{D7B26A65-B457-73F4-AB72-DBE6F6264AB1}</Project>
+      <Project>{F7BB917A-A26D-02D3-AE38-E2FA3296FFD8}</Project>
       <Name>Oculus.VR.Scripts.Editor</Name>
     </ProjectReference>
     <ProjectReference Include="Oculus.VR.csproj">
-      <Project>{956B9BAD-7961-ECC5-EE76-FF19C8007018}</Project>
+      <Project>{4BCFB316-94DA-F0ED-0302-B561BB6375BA}</Project>
       <Name>Oculus.VR</Name>
     </ProjectReference>
   </ItemGroup>
