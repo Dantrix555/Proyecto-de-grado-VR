@@ -23,6 +23,7 @@ public class PlayerMovement : MonoBehaviour
         //Set the center to zero
         else if (OVRInput.GetUp(OVRInput.Touch.PrimaryTouchpad))
             touchPadCenter = Vector2.zero;
+
         touchPadFingerPosition = OVRInput.Get(OVRInput.Axis2D.PrimaryTouchpad);
         transform.eulerAngles = new Vector3(0, centerEye.transform.localEulerAngles.y, 0);
         transform.Translate(Vector3.forward * moveSpeed * (touchPadFingerPosition.y - touchPadCenter.y) * Time.deltaTime);
