@@ -142,7 +142,7 @@ public class OVRGearVrControllerTest : MonoBehaviour
 
 	void Update()
 	{
-		OVRInput.Controller activeController = OVRInput.GetActiveController();
+        OVRInput.Controller activeController = OVRInput.GetActiveController();
 
 		data.Length = 0;
 		byte recenterCount = OVRInput.GetControllerRecenterCount();

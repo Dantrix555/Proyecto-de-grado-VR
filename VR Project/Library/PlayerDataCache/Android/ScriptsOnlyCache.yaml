@@ -9,10 +9,12 @@ ScriptsOnlyBuild:
     - Reticule
     - ShooterController
     Oculus.VR.Editor.dll:
+    - Assets.Oculus.VR.Editor.OVRPlatformToolSettings
     - OVRConfig
     Oculus.VR.dll:
     - OVRCameraRig
     - OVRControllerHelper
+    - OVRHeadsetEmulator
     - OVRManager
     - OVRScreenFade
     UnityEditor.Graphs.dll:
@@ -23,7 +25,6 @@ ScriptsOnlyBuild:
     - UnityEditor.Graphs.AnimatorControllerTool
     UnityEditor.TestRunner.dll:
     - UnityEditor.TestTools.TestRunner.Api.CallbacksHolder
-    - UnityEditor.TestTools.TestRunner.TestListCacheData
     UnityEngine.UI.dll:
     - UnityEngine.EventSystems.EventSystem
     - UnityEngine.EventSystems.StandaloneInputModule
@@ -71,39 +72,43 @@ ScriptsOnlyBuild:
     - Class: 109
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 9816}
+      Script: {instanceID: 9820}
     - Class: 114
-      Script: {instanceID: 9888}
+      Script: {instanceID: 9892}
     - Class: 114
-      Script: {instanceID: 10026}
+      Script: {instanceID: 10030}
     - Class: 114
-      Script: {instanceID: 10046}
+      Script: {instanceID: 10050}
     - Class: 114
-      Script: {instanceID: 10470}
+      Script: {instanceID: 10478}
     - Class: 114
-      Script: {instanceID: 10536}
+      Script: {instanceID: 10544}
     - Class: 114
-      Script: {instanceID: 10630}
+      Script: {instanceID: 10638}
     - Class: 114
-      Script: {instanceID: 10678}
+      Script: {instanceID: 10686}
     - Class: 114
-      Script: {instanceID: 10764}
+      Script: {instanceID: 10756}
     - Class: 114
-      Script: {instanceID: 10986}
+      Script: {instanceID: 10772}
     - Class: 114
-      Script: {instanceID: 11574}
+      Script: {instanceID: 11000}
     - Class: 114
-      Script: {instanceID: 11818}
+      Script: {instanceID: 11588}
     - Class: 114
-      Script: {instanceID: 11828}
+      Script: {instanceID: 11832}
     - Class: 114
-      Script: {instanceID: 11874}
+      Script: {instanceID: 11842}
     - Class: 114
-      Script: {instanceID: 11966}
+      Script: {instanceID: 11890}
     - Class: 114
-      Script: {instanceID: 12184}
+      Script: {instanceID: 11958}
     - Class: 114
-      Script: {instanceID: 12322}
+      Script: {instanceID: 11982}
+    - Class: 114
+      Script: {instanceID: 12202}
+    - Class: 114
+      Script: {instanceID: 12340}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 120
@@ -1313,6 +1318,12 @@ ScriptsOnlyBuild:
     assemblyName: Assembly-CSharp.dll
     namespaceName: Oculus.Platform.Samples.VrBoardGame
     className: MatchmakingManager
+  - hash:
+      serializedVersion: 2
+      Hash: 0297107f8cbf245b6ae825767e0ee5e3
+    assemblyName: Oculus.VR.Editor.dll
+    namespaceName: Assets.Oculus.VR.Editor
+    className: OVRPlatformToolSettings
   - hash:
       serializedVersion: 2
       Hash: 492e4075bfded9fb3f0d520048f29f83
