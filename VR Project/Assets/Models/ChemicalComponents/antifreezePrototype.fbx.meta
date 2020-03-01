@@ -1,9 +1,24 @@
 fileFormatVersion: 2
-guid: dca41582f64a71047b2e048f9cfd15ea
+guid: 50e920a44dd3f0748bfd97f86896ce0e
 ModelImporter:
   serializedVersion: 26
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: BodyImageAntifreeze
+    second: {fileID: 2100000, guid: 1251d3ed39278bf48adc5e5eb26768b9, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Edges
+    second: {fileID: 2100000, guid: a2216fc1e31e591428477e7aa4d38609, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Tap
+    second: {fileID: 2100000, guid: a34ef22a4a5b19140b03eb892af66ee5, type: 2}
   materials:
     importMaterials: 1
     materialName: 0
