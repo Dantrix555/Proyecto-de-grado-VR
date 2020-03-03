@@ -93,7 +93,7 @@ public class PlayerEvents : MonoBehaviour
     void Input()
     {
         //Touchpad Down (touchpad is pressed)
-        if (OVRInput.GetDown(OVRInput.Button.PrimaryTouchpad))
+        if (OVRInput.GetDown(OVRInput.Button.PrimaryIndexTrigger))
         {
             if (OnTouchpadDown != null)
             {
@@ -102,7 +102,7 @@ public class PlayerEvents : MonoBehaviour
         }
 
         //Touchpad Up (touchpad is released)
-        if (OVRInput.GetUp(OVRInput.Button.PrimaryTouchpad))
+        if (OVRInput.GetUp(OVRInput.Button.PrimaryIndexTrigger))
         {
             if (OnTouchpadUp != null)
             {

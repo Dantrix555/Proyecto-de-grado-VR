@@ -59,6 +59,8 @@ ScriptsOnlyBuild:
       Script: {instanceID: 0}
     - Class: 54
       Script: {instanceID: 0}
+    - Class: 64
+      Script: {instanceID: 0}
     - Class: 65
       Script: {instanceID: 0}
     - Class: 74
@@ -98,27 +100,27 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 10900}
     - Class: 114
-      Script: {instanceID: 11156}
+      Script: {instanceID: 11154}
     - Class: 114
       Script: {instanceID: 11680}
     - Class: 114
-      Script: {instanceID: 12038}
+      Script: {instanceID: 11782}
     - Class: 114
-      Script: {instanceID: 12048}
+      Script: {instanceID: 12036}
     - Class: 114
-      Script: {instanceID: 12100}
+      Script: {instanceID: 12046}
     - Class: 114
-      Script: {instanceID: 12168}
+      Script: {instanceID: 12076}
     - Class: 114
-      Script: {instanceID: 12194}
+      Script: {instanceID: 12098}
+    - Class: 114
+      Script: {instanceID: 12166}
+    - Class: 114
+      Script: {instanceID: 12192}
+    - Class: 114
+      Script: {instanceID: 12474}
     - Class: 114
       Script: {instanceID: 12574}
-    - Class: 114
-      Script: {instanceID: 18478}
-    - Class: 114
-      Script: {instanceID: 28392}
-    - Class: 114
-      Script: {instanceID: 28398}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 120
@@ -1250,6 +1252,12 @@ ScriptsOnlyBuild:
     className: OvrAvatarSettingsEditor
   - hash:
       serializedVersion: 2
+      Hash: 39b42421211ae002b534bec212e0ab77
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: GameManager
+  - hash:
+      serializedVersion: 2
       Hash: 8302a05adec609c4b10f8b6cc3443e4c
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
@@ -1368,6 +1376,12 @@ ScriptsOnlyBuild:
     assemblyName: UnityEngine.TestRunner.dll
     namespaceName: UnityEngine.TestTools
     className: BeforeAfterTestCommandState
+  - hash:
+      serializedVersion: 2
+      Hash: c34fd8b4a45cf139af6963993a57ca0a
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: FadePanel
   - hash:
       serializedVersion: 2
       Hash: b00ce1f32326f1cd1160488ffd14965a
@@ -1520,6 +1534,12 @@ ScriptsOnlyBuild:
     className: BaseInput
   - hash:
       serializedVersion: 2
+      Hash: 1c2337a533b26a596b4d0813cbaa5d00
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: CanvasManager
+  - hash:
+      serializedVersion: 2
       Hash: caa533b001ae39b864ba8425019e2268
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.UI
@@ -1620,24 +1640,6 @@ ScriptsOnlyBuild:
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
     className: PlayableTrack
-  - hash:
-      serializedVersion: 2
-      Hash: 39b42421211ae002b534bec212e0ab77
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: GameManager
-  - hash:
-      serializedVersion: 2
-      Hash: 1c2337a533b26a596b4d0813cbaa5d00
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: CanvasManager
-  - hash:
-      serializedVersion: 2
-      Hash: c34fd8b4a45cf139af6963993a57ca0a
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: FadePanel
   platform: 13
   scenePathNames:
   - Assets/Scenes/Level_01.unity

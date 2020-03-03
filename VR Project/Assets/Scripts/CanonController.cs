@@ -37,6 +37,16 @@ public class CanonController : MonoBehaviour
 
     private void OnOculusTriggerDown()
     {
-        _debugText.text = _pointer.currentObject.name;
+        switch(_pointer.currentObject.tag)
+        {
+            case "Floor":
+                GameManager.MainCanvas.FadePanelWindow.SetFadeAnimation();
+                Transform floorTransform = _pointer.currentObject.transform;
+                transform.position = new Vector3(floorTransform.position.x, transform.position.y, floorTransform.position.z);
+                break;
+            case "Component":
+                GameManager.MainCanvas.FadePanelWindow.SetFadeAnimation();
+                break;
+        }
     }
 }
