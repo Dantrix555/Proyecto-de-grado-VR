@@ -6,7 +6,8 @@ TagManager:
   tags:
   - Enemy
   - Bullet
-  - Teleport
+  - Floor
+  - Component
   layers:
   - Default
   - TransparentFX

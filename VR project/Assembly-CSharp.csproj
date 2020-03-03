@@ -349,14 +349,14 @@
     <Compile Include="Assets\Oculus\Spatializer\scripts\ONSPSettings.cs" />
     <Compile Include="Assets\Oculus\Spatializer\scripts\ONSPVersion.cs" />
     <Compile Include="Assets\Scripts\BulletController.cs" />
-    <Compile Include="Assets\Scripts\EnemyController.cs" />
-    <Compile Include="Assets\Scripts\Interactable.cs" />
+    <Compile Include="Assets\Scripts\CanonController.cs" />
+    <Compile Include="Assets\Scripts\CanvasManager.cs" />
+    <Compile Include="Assets\Scripts\CHEMSingleton.cs" />
+    <Compile Include="Assets\Scripts\FadePanel.cs" />
+    <Compile Include="Assets\Scripts\GameManager.cs" />
     <Compile Include="Assets\Scripts\PlayerEvents.cs" />
     <Compile Include="Assets\Scripts\PlayerMovement.cs" />
     <Compile Include="Assets\Scripts\Pointer.cs" />
-    <Compile Include="Assets\Scripts\Reticule.cs" />
-    <Compile Include="Assets\Scripts\ShooterController.cs" />
-    <Compile Include="Assets\Scripts\TeleportController.cs" />
     <None Include="Assets\_Barking_Dog\Readme_Please.txt" />
     <None Include="Assets\Oculus\Avatar\Resources\Materials\Version1.5\Avatar_PC_SingleComponent.shader" />
     <None Include="Assets\Oculus\Avatar\Samples\CrossPlatform\Readme.txt" />
@@ -404,20 +404,20 @@
     <Reference Include="Unity.CollabProxy.Editor">
       <HintPath>E:/Programming/Unity/Projects/Proyecto-de-grado-VR/VR Project/Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll</HintPath>
     </Reference>
+    <Reference Include="Unity.Postprocessing.Editor">
+      <HintPath>E:/Programming/Unity/Projects/Proyecto-de-grado-VR/VR Project/Library/ScriptAssemblies/Unity.Postprocessing.Editor.dll</HintPath>
+    </Reference>
     <Reference Include="Unity.Rider.Editor">
       <HintPath>E:/Programming/Unity/Projects/Proyecto-de-grado-VR/VR Project/Library/ScriptAssemblies/Unity.Rider.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Postprocessing.Runtime">
+      <HintPath>E:/Programming/Unity/Projects/Proyecto-de-grado-VR/VR Project/Library/ScriptAssemblies/Unity.Postprocessing.Runtime.dll</HintPath>
     </Reference>
     <Reference Include="Unity.TextMeshPro">
       <HintPath>E:/Programming/Unity/Projects/Proyecto-de-grado-VR/VR Project/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor.UI">
       <HintPath>E:/Programming/Unity/Projects/Proyecto-de-grado-VR/VR Project/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.Postprocessing.Editor">
-      <HintPath>E:/Programming/Unity/Projects/Proyecto-de-grado-VR/VR Project/Library/ScriptAssemblies/Unity.Postprocessing.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.Postprocessing.Runtime">
-      <HintPath>E:/Programming/Unity/Projects/Proyecto-de-grado-VR/VR Project/Library/ScriptAssemblies/Unity.Postprocessing.Runtime.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.AIModule">
       <HintPath>C:/Program Files/Unity/Hub/Editor/2019.2.16f1/Editor/Data/Managed/UnityEngine/UnityEngine.AIModule.dll</HintPath>

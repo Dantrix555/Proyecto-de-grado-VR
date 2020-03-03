@@ -3,11 +3,20 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
+/// <summary>
+/// This script is to detect which is the actual controller and the actions of the controller through events
+/// </summary>
+
+//Taken from https://www.youtube.com/playlist?list=PLmc6GPFDyfw9AaEsedQZ3-EJi5RnUN7VU
+
 public class PlayerEvents : MonoBehaviour
 {
     #region Events
+    //Event to detect when is releasing the oculus go trigger button
     public static UnityAction OnTouchpadUp = null;
+    //Event to detect when is holding the oculus go trigger button
     public static UnityAction OnTouchpadDown = null;
+    //Event to get the actual controller
     public static UnityAction<OVRInput.Controller, GameObject> OnControllerSource = null;
     #endregion
 
@@ -65,7 +74,7 @@ public class PlayerEvents : MonoBehaviour
         if (OVRInput.IsControllerConnected(OVRInput.Controller.LTrackedRemote))
             controllerCheck = OVRInput.Controller.LTrackedRemote;
 
-        //If no controllers, then headset
+        //If no controllers, then set headset
         if (!OVRInput.IsControllerConnected(OVRInput.Controller.LTrackedRemote) &&
             !OVRInput.IsControllerConnected(OVRInput.Controller.RTrackedRemote))
             controllerCheck = OVRInput.Controller.Touchpad;
