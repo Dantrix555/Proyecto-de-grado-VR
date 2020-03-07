@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a7e150db634e85a49950b00fe05dc712, type: 3}
+  m_Name: PropyleneGlycol
+  m_EditorClassIdentifier: 
+  id: 3
+  name: Propilenglicol
+  formula: C3H8O2
+  componentObject: {fileID: 2294518735018135980, guid: b29eb3c9cb6a82947934a2b4ceea9a3b,
+    type: 3}
+  shotObject: {fileID: 0}

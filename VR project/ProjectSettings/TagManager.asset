@@ -8,6 +8,7 @@ TagManager:
   - Bullet
   - Floor
   - Component
+  - Canon
   layers:
   - Default
   - TransparentFX

@@ -13,9 +13,9 @@ public class PlayerEvents : MonoBehaviour
 {
     #region Events
     //Event to detect when is releasing the oculus go trigger button
-    public static UnityAction OnTouchpadUp = null;
-    //Event to detect when is holding the oculus go trigger button
     public static UnityAction OnTouchpadDown = null;
+    //Event to detect when is holding the oculus go trigger button
+    public static UnityAction OnTriggerDown = null;
     //Event to get the actual controller
     public static UnityAction<OVRInput.Controller, GameObject> OnControllerSource = null;
     #endregion
@@ -95,18 +95,18 @@ public class PlayerEvents : MonoBehaviour
         //Touchpad Down (touchpad is pressed)
         if (OVRInput.GetDown(OVRInput.Button.PrimaryIndexTrigger))
         {
-            if (OnTouchpadDown != null)
+            if (OnTriggerDown != null)
             {
-                OnTouchpadDown();
+                OnTriggerDown();
             }
         }
 
         //Touchpad Up (touchpad is released)
-        if (OVRInput.GetUp(OVRInput.Button.PrimaryIndexTrigger))
+        if (OVRInput.GetUp(OVRInput.Button.PrimaryTouchpad))
         {
-            if (OnTouchpadUp != null)
+            if (OnTouchpadDown != null)
             {
-                OnTouchpadUp();
+                OnTouchpadDown();
             }
         }
     }
