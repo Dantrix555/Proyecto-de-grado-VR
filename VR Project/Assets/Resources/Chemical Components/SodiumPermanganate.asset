@@ -17,5 +17,5 @@ MonoBehaviour:
   formula: NaMnO4
   componentObject: {fileID: 2501088019312097092, guid: 7abfbbab69139d246927423aa7281f3d,
     type: 3}
-  shotObject: {fileID: 2501088019312097092, guid: 7abfbbab69139d246927423aa7281f3d,
+  shotObject: {fileID: 6328714486357033285, guid: 678b8461c4fedea4d8fda0fa10aad253,
     type: 3}

@@ -22,12 +22,11 @@ public class CanonController : MonoBehaviour
     private void Awake()
     {
         PlayerEvents.OnTriggerDown += OnOculusTriggerDown;
-        PlayerEvents.OnTouchpadDown += DiabsorbComponent;
     }
 
     void Start()
     {
-        _absorbSpeed = 5;
+        _absorbSpeed = 2.5f;
         _canShot = false;
         _nextFire = 0.5f;
     }
@@ -35,26 +34,29 @@ public class CanonController : MonoBehaviour
     private void OnDestroy()
     {
         PlayerEvents.OnTriggerDown -= OnOculusTriggerDown;
-        PlayerEvents.OnTouchpadDown -= DiabsorbComponent;
     }
 
     private void OnOculusTriggerDown()
     {
-        switch (_pointer.currentObject.tag)
+        if (_pointer.currentObject != null)
         {
-            case "Defaut":
-                break;
-            case "Floor":
-                GameManager.MainCanvas.FadePanelWindow.SetFadeAnimation();
-                transform.position = new Vector3(_pointer.hitPoint.x, transform.position.y, _pointer.hitPoint.z);
-                break;
-            case "Component":
-                GameObject componentObject = _pointer.currentObject;
-                componentObject.GetComponent<Rigidbody>().velocity = (transform.position - componentObject.transform.position);
-                break;
+            switch (_pointer.currentObject.tag)
+            {
+                case "Floor":
+                    GameManager.MainCanvas.FadePanelWindow.SetFadeAnimation();
+                    transform.position = new Vector3(_pointer.hitPoint.x, transform.position.y, _pointer.hitPoint.z);
+                    break;
+                case "Component":
+                    GameObject componentObject = _pointer.currentObject;
+                    componentObject.GetComponent<Rigidbody>().velocity = (transform.position - componentObject.transform.position) * _absorbSpeed;
+                    break;
+                default:
+                    Shot();
+                    break;
+            }
         }
-
-        Shot();
+        else
+            Shot();
     }
 
     private void Shot()
@@ -63,15 +65,10 @@ public class CanonController : MonoBehaviour
         {
             _nextFire = Time.time;
             _shotComponent = Instantiate(_shotComponent, _pointer.shotPoint.transform.position, Quaternion.identity, transform);
-            _shotComponent.GetComponent<ComponentController>().SetComponentVelocity(transform.forward);
+            //Set to the pointer position because this script is attached to OVRCameraRig GameObject the absolute father of the other objects 
+            //And the father has blocked its rotations
+            _shotComponent.GetComponent<ShotableComponent>().SetVelocity(_pointer.transform.forward, 2 * _absorbSpeed);
         }
-    }
-
-    private void DiabsorbComponent()
-    {
-        _debugText.text = "No object";
-        _shotComponent = null;
-        _canShot = false;
     }
 
     private void OnTriggerEnter(Collider other)
@@ -79,10 +76,10 @@ public class CanonController : MonoBehaviour
         if (other.gameObject.tag == "Component")
         {
             other.gameObject.transform.parent.GetComponent<SpawnerController>().Invoke("SpawnComponent", 15);
-            _shotComponent = other.gameObject.GetComponent<ComponentController>().GetShotPrefab();
+            _shotComponent = other.gameObject.GetComponent<GetAtAbleComponent>().GetShotPrefab();
             _debugText.text = _shotComponent.name;
-            Destroy(other.gameObject);
             _canShot = true;
+            Destroy(other.gameObject);
         }
     }
 }

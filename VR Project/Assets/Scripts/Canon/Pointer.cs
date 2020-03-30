@@ -112,7 +112,8 @@ public class Pointer : MonoBehaviour
             _circleSpriteRenderer.sprite = _circleSprite;
             return hit.collider.gameObject;
         }
-        
+
+        _circleSpriteRenderer.sprite = null;
         //Return
         return null;
     }

@@ -101,8 +101,20 @@
     <Reference Include="Unity.VSCode.Editor">
       <HintPath>E:/Programming/Unity/Projects/Proyecto-de-grado-VR/VR Project/Library/ScriptAssemblies/Unity.VSCode.Editor.dll</HintPath>
     </Reference>
+    <Reference Include="Unity.RenderPipelines.Core.Editor">
+      <HintPath>E:/Programming/Unity/Projects/Proyecto-de-grado-VR/VR Project/Library/ScriptAssemblies/Unity.RenderPipelines.Core.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.RenderPipelines.Core.Runtime">
+      <HintPath>E:/Programming/Unity/Projects/Proyecto-de-grado-VR/VR Project/Library/ScriptAssemblies/Unity.RenderPipelines.Core.Runtime.dll</HintPath>
+    </Reference>
     <Reference Include="Unity.TextMeshPro.Editor">
       <HintPath>E:/Programming/Unity/Projects/Proyecto-de-grado-VR/VR Project/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.RenderPipelines.Lightweight.Runtime">
+      <HintPath>E:/Programming/Unity/Projects/Proyecto-de-grado-VR/VR Project/Library/ScriptAssemblies/Unity.RenderPipelines.Lightweight.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.RenderPipelines.Lightweight.Editor">
+      <HintPath>E:/Programming/Unity/Projects/Proyecto-de-grado-VR/VR Project/Library/ScriptAssemblies/Unity.RenderPipelines.Lightweight.Editor.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.UI">
       <HintPath>E:/Programming/Unity/Projects/Proyecto-de-grado-VR/VR Project/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
@@ -119,8 +131,17 @@
     <Reference Include="Unity.Rider.Editor">
       <HintPath>E:/Programming/Unity/Projects/Proyecto-de-grado-VR/VR Project/Library/ScriptAssemblies/Unity.Rider.Editor.dll</HintPath>
     </Reference>
+    <Reference Include="Unity.RenderPipelines.ShaderGraph.ShaderGraphLibrary">
+      <HintPath>E:/Programming/Unity/Projects/Proyecto-de-grado-VR/VR Project/Library/ScriptAssemblies/Unity.RenderPipelines.ShaderGraph.ShaderGraphLibrary.dll</HintPath>
+    </Reference>
     <Reference Include="Unity.Postprocessing.Runtime">
       <HintPath>E:/Programming/Unity/Projects/Proyecto-de-grado-VR/VR Project/Library/ScriptAssemblies/Unity.Postprocessing.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.ShaderGraph.Editor">
+      <HintPath>E:/Programming/Unity/Projects/Proyecto-de-grado-VR/VR Project/Library/ScriptAssemblies/Unity.ShaderGraph.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.RenderPipelines.Core.ShaderLibrary">
+      <HintPath>E:/Programming/Unity/Projects/Proyecto-de-grado-VR/VR Project/Library/ScriptAssemblies/Unity.RenderPipelines.Core.ShaderLibrary.dll</HintPath>
     </Reference>
     <Reference Include="Unity.TextMeshPro">
       <HintPath>E:/Programming/Unity/Projects/Proyecto-de-grado-VR/VR Project/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
