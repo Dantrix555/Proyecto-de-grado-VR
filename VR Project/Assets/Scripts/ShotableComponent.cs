@@ -4,11 +4,22 @@ using UnityEngine;
 
 public class ShotableComponent : MonoBehaviour
 {
-    [Header("Rigidbody Reference")]
-    [SerializeField] private Rigidbody _rigidbody = default;
-    
+
+    private string _componentFormula = default;
+
+    public string ComponentFormula { get => _componentFormula; set => _componentFormula = value; }
+
     public void SetVelocity(Vector3 direction, float speed)
     {
-        _rigidbody.velocity = direction * speed;
+        GetComponent<Rigidbody>().velocity = direction * speed;
+    }
+
+    //Temporally everything destroys the shot
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.gameObject.tag != "Enemy")
+        {
+            Destroy(gameObject);
+        }
     }
 }

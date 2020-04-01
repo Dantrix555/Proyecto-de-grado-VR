@@ -69,6 +69,9 @@ public class Pointer : MonoBehaviour
                 case "Component":
                     endLineColor = Color.green;
                     break;
+                case "Enemy":
+                    endLineColor = Color.red;
+                    break;
                 default:
                     endLineColor = Color.white;
                     break;

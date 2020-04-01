@@ -5,10 +5,7 @@ using UnityEngine;
 public class GameManager : CHEMSingleton<GameManager>
 {
 
-    protected GameManager()
-    {
-
-    }
+    protected GameManager(){}
 
     [Header("Game Managers")]
     [SerializeField] private CanvasManager _mainCanvas;
@@ -17,6 +14,12 @@ public class GameManager : CHEMSingleton<GameManager>
 
     public static CanvasManager MainCanvas { get => Instance._mainCanvas; }
     public static SpawnerController[] SpawnerControllers { get => Instance._spawnerControllers; }
+
+    private bool _isInGameScene = default;
+    private bool _isGamePaused = default;
+
+    public static bool IsGameScene { get => Instance._isInGameScene; set => Instance._isInGameScene = value; }
+    public static bool IsGamePaused { get => Instance._isGamePaused; set => Instance._isGamePaused = value; }
 
     void Start()
     {

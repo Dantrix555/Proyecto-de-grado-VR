@@ -16,11 +16,16 @@ public class GetAtAbleComponent : MonoBehaviour
         this.id = id;
         this.formula = formula;
         this.shotComponentPrefab = shotComponentPrefab;
-        Debug.Log(shotComponentPrefab.name);
     }
 
     public GameObject GetShotPrefab()
     {
         return shotComponentPrefab;
     }
+
+    public string GetComponentFormula()
+    {
+        return formula;
+    }
+
 }

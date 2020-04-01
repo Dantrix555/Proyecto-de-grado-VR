@@ -11,10 +11,15 @@ public class CanonController : MonoBehaviour
     //Public reference to the canon pointer
     public Pointer Pointer { get => _pointer; }
 
+    [SerializeField] private CanonReaderCanvas _reader = default;
+
+    public CanonReaderCanvas Reader { get => _reader; }
+
     [Header("Debug References")]
     [SerializeField] private Text _debugText = default;
 
     private GameObject _shotComponent;
+    private string _componentFormula;
     private bool _canShot;
     private float _nextFire;
     private float _absorbSpeed;
@@ -44,7 +49,7 @@ public class CanonController : MonoBehaviour
             {
                 case "Floor":
                     GameManager.MainCanvas.FadePanelWindow.SetFadeAnimation();
-                    transform.position = new Vector3(_pointer.hitPoint.x, transform.position.y, _pointer.hitPoint.z);
+                    StartCoroutine(TeleportPlayer(new Vector3(_pointer.hitPoint.x, transform.position.y, _pointer.hitPoint.z)));
                     break;
                 case "Component":
                     GameObject componentObject = _pointer.currentObject;
@@ -68,7 +73,17 @@ public class CanonController : MonoBehaviour
             //Set to the pointer position because this script is attached to OVRCameraRig GameObject the absolute father of the other objects 
             //And the father has blocked its rotations
             _shotComponent.GetComponent<ShotableComponent>().SetVelocity(_pointer.transform.forward, 2 * _absorbSpeed);
+            _shotComponent.GetComponent<ShotableComponent>().ComponentFormula = _componentFormula;
         }
+    }
+
+    private IEnumerator TeleportPlayer(Vector3 newPosition)
+    {
+        PauseGame(true);
+        yield return new WaitForSeconds(0.5f);
+        transform.position = newPosition;
+        yield return new WaitForSeconds(0.5f);
+        PauseGame(false);
     }
 
     private void OnTriggerEnter(Collider other)
@@ -77,9 +92,16 @@ public class CanonController : MonoBehaviour
         {
             other.gameObject.transform.parent.GetComponent<SpawnerController>().Invoke("SpawnComponent", 15);
             _shotComponent = other.gameObject.GetComponent<GetAtAbleComponent>().GetShotPrefab();
-            _debugText.text = _shotComponent.name;
+            _componentFormula = other.gameObject.GetComponent<GetAtAbleComponent>().GetComponentFormula();
+            _reader.SetReaderText(_componentFormula);
             _canShot = true;
             Destroy(other.gameObject);
         }
+    }
+
+    private void PauseGame(bool isPausedValue)
+    {
+        //Call a method from the main game singleton
+        GameManager.IsGamePaused = isPausedValue;
     }
 }

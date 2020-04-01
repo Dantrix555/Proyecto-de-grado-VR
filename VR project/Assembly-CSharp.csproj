@@ -349,8 +349,10 @@
     <Compile Include="Assets\Oculus\Spatializer\scripts\ONSPSettings.cs" />
     <Compile Include="Assets\Oculus\Spatializer\scripts\ONSPVersion.cs" />
     <Compile Include="Assets\Scripts\Canon\CanonController.cs" />
+    <Compile Include="Assets\Scripts\Canon\CanonReaderCanvas.cs" />
     <Compile Include="Assets\Scripts\Canon\Pointer.cs" />
     <Compile Include="Assets\Scripts\CanvasManager.cs" />
+    <Compile Include="Assets\Scripts\Enemies\EnemyController.cs" />
     <Compile Include="Assets\Scripts\GetAtAbleComponent.cs" />
     <Compile Include="Assets\Scripts\PlayerEvents.cs" />
     <Compile Include="Assets\Scripts\ScriptableObjects\ChemicalComponent.cs" />

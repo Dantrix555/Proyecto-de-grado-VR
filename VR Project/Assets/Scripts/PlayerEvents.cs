@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -13,7 +12,7 @@ public class PlayerEvents : MonoBehaviour
 {
     #region Events
     //Event to detect when is releasing the oculus go trigger button
-    public static UnityAction OnTouchpadDown = null;
+    public static UnityAction OnBackButtonDown = null;
     //Event to detect when is holding the oculus go trigger button
     public static UnityAction OnTriggerDown = null;
     //Event to get the actual controller
@@ -38,6 +37,7 @@ public class PlayerEvents : MonoBehaviour
         OVRManager.HMDMounted += PlayerFound;
         OVRManager.HMDUnmounted += PlayerLost;
         m_controllersSet = CreateControllerSets();
+        GameManager.IsGamePaused = false;
     }
 
     void OnDestroy()
@@ -93,7 +93,7 @@ public class PlayerEvents : MonoBehaviour
     void Input()
     {
         //Touchpad Down (touchpad is pressed)
-        if (OVRInput.GetDown(OVRInput.Button.PrimaryIndexTrigger))
+        if (OVRInput.GetDown(OVRInput.Button.PrimaryIndexTrigger) && !GameManager.IsGamePaused)
         {
             if (OnTriggerDown != null)
             {
@@ -102,11 +102,11 @@ public class PlayerEvents : MonoBehaviour
         }
 
         //Touchpad Up (touchpad is released)
-        if (OVRInput.GetUp(OVRInput.Button.PrimaryTouchpad))
+        if (OVRInput.GetUp(OVRInput.Button.Back) && !GameManager.IsGamePaused)
         {
-            if (OnTouchpadDown != null)
+            if (OnBackButtonDown != null)
             {
-                OnTouchpadDown();
+                OnBackButtonDown();
             }
         }
     }

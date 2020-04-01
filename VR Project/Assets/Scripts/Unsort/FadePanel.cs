@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class FadePanel : MonoBehaviour
 {
-    [SerializeField] private Animator _panelAnimator = default;
+    [SerializeField] private Animator _fadePanelAnimator = default;
 
     public void SetFadeAnimation()
     {
-        _panelAnimator.SetTrigger("FadeTeleport");
+        _fadePanelAnimator.SetTrigger("FadeTeleport");
     }
 }
