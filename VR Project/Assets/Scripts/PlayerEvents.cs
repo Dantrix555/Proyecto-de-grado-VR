@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.UI;
 
 /// <summary>
 /// This script is to detect which is the actual controller and the actions of the controller through events
@@ -32,6 +33,9 @@ public class PlayerEvents : MonoBehaviour
     private bool m_inputActive = true;
     #endregion
 
+    [Header("Debug References")]
+    [SerializeField] private Text _debugText = default;
+
     void Awake()
     {
         OVRManager.HMDMounted += PlayerFound;
@@ -60,6 +64,8 @@ public class PlayerEvents : MonoBehaviour
 
         //Check for actual input
         Input();
+
+        _debugText.text = GameManager.IsGamePaused.ToString();
     }
 
     void CheckForController()
@@ -93,7 +99,7 @@ public class PlayerEvents : MonoBehaviour
     void Input()
     {
         //Touchpad Down (touchpad is pressed)
-        if (OVRInput.GetDown(OVRInput.Button.PrimaryIndexTrigger) && !GameManager.IsGamePaused)
+        if (OVRInput.GetDown(OVRInput.Button.PrimaryIndexTrigger))
         {
             if (OnTriggerDown != null)
             {
@@ -102,7 +108,7 @@ public class PlayerEvents : MonoBehaviour
         }
 
         //Touchpad Up (touchpad is released)
-        if (OVRInput.GetUp(OVRInput.Button.Back) && !GameManager.IsGamePaused)
+        if (OVRInput.GetUp(OVRInput.Button.Back))
         {
             if (OnBackButtonDown != null)
             {

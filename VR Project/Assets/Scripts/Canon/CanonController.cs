@@ -15,10 +15,10 @@ public class CanonController : MonoBehaviour
 
     public CanonReaderCanvas Reader { get => _reader; }
 
-    [Header("Debug References")]
-    [SerializeField] private Text _debugText = default;
+    //[Header("Debug References")]
+    //[SerializeField] private Text _debugText = default;
 
-    private GameObject _shotComponent;
+    private GameObject _shotComponentPrefab;
     private string _componentFormula;
     private bool _canShot;
     private float _nextFire;
@@ -43,25 +43,29 @@ public class CanonController : MonoBehaviour
 
     private void OnOculusTriggerDown()
     {
-        if (_pointer.currentObject != null)
+        //_debugText.text = _shotComponent.name;
+        if(!GameManager.IsGamePaused)
         {
-            switch (_pointer.currentObject.tag)
+            if (_pointer.currentObject != null)
             {
-                case "Floor":
-                    GameManager.MainCanvas.FadePanelWindow.SetFadeAnimation();
-                    StartCoroutine(TeleportPlayer(new Vector3(_pointer.hitPoint.x, transform.position.y, _pointer.hitPoint.z)));
-                    break;
-                case "Component":
-                    GameObject componentObject = _pointer.currentObject;
-                    componentObject.GetComponent<Rigidbody>().velocity = (transform.position - componentObject.transform.position) * _absorbSpeed;
-                    break;
-                default:
-                    Shot();
-                    break;
+                switch (_pointer.currentObject.tag)
+                {
+                    case "Floor":
+                        GameManager.MainCanvas.FadePanelWindow.SetFadeAnimation();
+                        StartCoroutine(TeleportPlayer(new Vector3(_pointer.hitPoint.x, transform.position.y, _pointer.hitPoint.z)));
+                        break;
+                    case "Component":
+                        GameObject componentObject = _pointer.currentObject;
+                        componentObject.GetComponent<Rigidbody>().velocity = (transform.position - componentObject.transform.position) * _absorbSpeed;
+                        break;
+                    default:
+                        Shot();
+                        break;
+                }
             }
+            else
+                Shot();
         }
-        else
-            Shot();
     }
 
     private void Shot()
@@ -69,11 +73,11 @@ public class CanonController : MonoBehaviour
         if(_canShot)
         {
             _nextFire = Time.time;
-            _shotComponent = Instantiate(_shotComponent, _pointer.shotPoint.transform.position, Quaternion.identity, transform);
+            GameObject _shotComponentInstance = Instantiate(_shotComponentPrefab, _pointer.shotPoint.transform.position, Quaternion.identity, transform);
             //Set to the pointer position because this script is attached to OVRCameraRig GameObject the absolute father of the other objects 
             //And the father has blocked its rotations
-            _shotComponent.GetComponent<ShotableComponent>().SetVelocity(_pointer.transform.forward, 2 * _absorbSpeed);
-            _shotComponent.GetComponent<ShotableComponent>().ComponentFormula = _componentFormula;
+            _shotComponentInstance.GetComponent<ShotableComponent>().SetVelocity(_pointer.transform.forward, 2 * _absorbSpeed);
+            _shotComponentInstance.GetComponent<ShotableComponent>().ComponentFormula = _componentFormula;
         }
     }
 
@@ -91,7 +95,7 @@ public class CanonController : MonoBehaviour
         if (other.gameObject.tag == "Component")
         {
             other.gameObject.transform.parent.GetComponent<SpawnerController>().Invoke("SpawnComponent", 15);
-            _shotComponent = other.gameObject.GetComponent<GetAtAbleComponent>().GetShotPrefab();
+            _shotComponentPrefab = other.gameObject.GetComponent<GetAtAbleComponent>().GetShotPrefab();
             _componentFormula = other.gameObject.GetComponent<GetAtAbleComponent>().GetComponentFormula();
             _reader.SetReaderText(_componentFormula);
             _canShot = true;

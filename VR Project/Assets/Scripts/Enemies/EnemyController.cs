@@ -17,7 +17,7 @@ public class EnemyController : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         GameObject collisionGameObject = other.gameObject;
-        if (collisionGameObject.GetComponent<ShotableComponent>().ComponentFormula == _weaknessComponent.ToString())
+        if (collisionGameObject.tag == "Shot" && collisionGameObject.GetComponent<ShotableComponent>().ComponentFormula == _weaknessComponent.ToString())
         {
             //Simulates a shot
             Destroy(collisionGameObject);

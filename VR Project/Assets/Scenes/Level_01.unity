@@ -249,7 +249,7 @@ Transform:
   - {fileID: 1549035296}
   - {fileID: 1504925116}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &223676646
 GameObject:
@@ -505,7 +505,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &697021970
 RectTransform:
   m_ObjectHideFlags: 0
@@ -707,7 +707,7 @@ Transform:
   m_Children:
   - {fileID: 1128059102}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &817622981
 GameObject:
@@ -1088,10 +1088,10 @@ RectTransform:
   m_Father: {fileID: 697021970}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 198.5, y: -22.85}
-  m_SizeDelta: {x: 397, y: 45.7}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1119268530
 GameObject:
@@ -2113,7 +2113,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1660375701
 GameObject:
@@ -3404,7 +3404,7 @@ Transform:
   m_Children:
   - {fileID: 909262006733276030}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &909262006733346054
 Transform:
@@ -3586,7 +3586,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _pointer: {fileID: 907663951516538816}
   _reader: {fileID: 1176069992}
-  _debugText: {fileID: 1004358945}
 --- !u!20 &909262006733737864
 Camera:
   m_ObjectHideFlags: 0
@@ -4093,7 +4092,6 @@ GameObject:
   m_Component:
   - component: {fileID: 8407053728354311340}
   - component: {fileID: 1883024796459610582}
-  - component: {fileID: 4823499280452447936}
   m_Layer: 10
   m_Name: bacteria
   m_TagString: Enemy
@@ -4101,19 +4099,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &4823499280452447936
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4823499280452447935}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cb92e6576c46c9442a9c2e167789b167, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _weaknessComponent: 0
 --- !u!4 &5189783344993179426
 Transform:
   m_ObjectHideFlags: 0
@@ -4266,6 +4251,7 @@ GameObject:
   - component: {fileID: 6979927923851712685}
   - component: {fileID: 6874611059222403116}
   - component: {fileID: 6874611059222403115}
+  - component: {fileID: 6874611059222403117}
   m_Layer: 10
   m_Name: Sphere
   m_TagString: Enemy
@@ -4302,6 +4288,19 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.020021984, y: 0.10177417, z: 0.019696185}
   m_Center: {x: 0, y: 0.014707131, z: 0.0000000011501606}
+--- !u!114 &6874611059222403117
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6874611059222403114}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb92e6576c46c9442a9c2e167789b167, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _weaknessComponent: 0
 --- !u!137 &6979927923851712685
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 0
@@ -4391,7 +4390,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &8270182858414201685
 Transform:
@@ -4439,7 +4438,7 @@ Transform:
   - {fileID: 5189783344993179426}
   - {fileID: 5890842105143102819}
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!1 &8593454692950734522
 GameObject:
@@ -4520,3 +4519,4 @@ MonoBehaviour:
   m_leftAnchor: {fileID: 2125698210}
   m_rightAnchor: {fileID: 909262006733603446}
   m_headAnchor: {fileID: 909262006733637920}
+  _debugText: {fileID: 1004358945}

@@ -16,7 +16,7 @@ public class GameManager : CHEMSingleton<GameManager>
     public static SpawnerController[] SpawnerControllers { get => Instance._spawnerControllers; }
 
     private bool _isInGameScene = default;
-    private bool _isGamePaused = default;
+    private bool _isGamePaused = false;
 
     public static bool IsGameScene { get => Instance._isInGameScene; set => Instance._isInGameScene = value; }
     public static bool IsGamePaused { get => Instance._isGamePaused; set => Instance._isGamePaused = value; }
