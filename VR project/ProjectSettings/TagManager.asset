@@ -9,6 +9,7 @@ TagManager:
   - Component
   - Canon
   - Shot
+  - Button
   layers:
   - Default
   - TransparentFX

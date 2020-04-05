@@ -351,17 +351,17 @@
     <Compile Include="Assets\Scripts\Canon\CanonController.cs" />
     <Compile Include="Assets\Scripts\Canon\CanonReaderCanvas.cs" />
     <Compile Include="Assets\Scripts\Canon\Pointer.cs" />
-    <Compile Include="Assets\Scripts\CanvasManager.cs" />
+    <Compile Include="Assets\Scripts\Chemical Components\GetAtAbleComponent.cs" />
+    <Compile Include="Assets\Scripts\Chemical Components\ShotableComponent.cs" />
+    <Compile Include="Assets\Scripts\Chemical Components\SpawnerController.cs" />
     <Compile Include="Assets\Scripts\Enemies\EnemyController.cs" />
-    <Compile Include="Assets\Scripts\GetAtAbleComponent.cs" />
-    <Compile Include="Assets\Scripts\PlayerEvents.cs" />
     <Compile Include="Assets\Scripts\ScriptableObjects\ChemicalComponent.cs" />
-    <Compile Include="Assets\Scripts\ShotableComponent.cs" />
     <Compile Include="Assets\Scripts\Singleton\CHEMSingleton.cs" />
     <Compile Include="Assets\Scripts\Singleton\GameManager.cs" />
-    <Compile Include="Assets\Scripts\SpawnerController.cs" />
-    <Compile Include="Assets\Scripts\Unsort\FadePanel.cs" />
-    <Compile Include="Assets\Scripts\Unsort\PlayerMovement.cs" />
+    <Compile Include="Assets\Scripts\Singleton\PlayerEvents.cs" />
+    <Compile Include="Assets\Scripts\UI\Buttons\ButtonController.cs" />
+    <Compile Include="Assets\Scripts\UI\Canvas\CanvasManager.cs" />
+    <Compile Include="Assets\Scripts\UI\Canvas\FadePanel.cs" />
     <None Include="Assets\_Barking_Dog\Readme_Please.txt" />
     <None Include="Assets\Oculus\Avatar\Resources\Materials\Version1.5\Avatar_PC_SingleComponent.shader" />
     <None Include="Assets\Oculus\Avatar\Samples\CrossPlatform\Readme.txt" />
@@ -444,6 +444,9 @@
     </Reference>
     <Reference Include="UnityEditor.UI">
       <HintPath>E:/Programming/Unity/Projects/Proyecto-de-grado-VR/VR Project/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.2D.Sprite.Editor">
+      <HintPath>E:/Programming/Unity/Projects/Proyecto-de-grado-VR/VR Project/Library/ScriptAssemblies/Unity.2D.Sprite.Editor.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.AIModule">
       <HintPath>C:/Program Files/Unity/Hub/Editor/2019.2.16f1/Editor/Data/Managed/UnityEngine/UnityEngine.AIModule.dll</HintPath>

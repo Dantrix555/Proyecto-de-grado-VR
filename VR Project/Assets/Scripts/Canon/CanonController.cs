@@ -43,7 +43,6 @@ public class CanonController : MonoBehaviour
 
     private void OnOculusTriggerDown()
     {
-        //_debugText.text = _shotComponent.name;
         if(!GameManager.IsGamePaused)
         {
             if (_pointer.currentObject != null)
@@ -57,6 +56,9 @@ public class CanonController : MonoBehaviour
                     case "Component":
                         GameObject componentObject = _pointer.currentObject;
                         componentObject.GetComponent<Rigidbody>().velocity = (transform.position - componentObject.transform.position) * _absorbSpeed;
+                        break;
+                    case "Button":
+                        _pointer.currentObject.GetComponent<ButtonController>().CheckOption();
                         break;
                     default:
                         Shot();
