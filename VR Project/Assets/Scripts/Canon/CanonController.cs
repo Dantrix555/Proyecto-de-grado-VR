@@ -11,10 +11,6 @@ public class CanonController : MonoBehaviour
     //Public reference to the canon pointer
     public Pointer Pointer { get => _pointer; }
 
-    [SerializeField] private CanonReaderCanvas _reader = default;
-
-    public CanonReaderCanvas Reader { get => _reader; }
-
     //[Header("Debug References")]
     //[SerializeField] private Text _debugText = default;
 
@@ -43,14 +39,14 @@ public class CanonController : MonoBehaviour
 
     private void OnOculusTriggerDown()
     {
-        if(!GameManager.IsGamePaused)
+        if(!InGameManager.IsGamePaused)
         {
             if (_pointer.currentObject != null)
             {
                 switch (_pointer.currentObject.tag)
                 {
                     case "Floor":
-                        GameManager.MainCanvas.FadePanelWindow.SetFadeAnimation();
+                        InGameManager.MainCanvas.FadePanelWindow.SetFadeAnimation();
                         StartCoroutine(TeleportPlayer(new Vector3(_pointer.hitPoint.x, transform.position.y, _pointer.hitPoint.z)));
                         break;
                     case "Component":
@@ -99,7 +95,7 @@ public class CanonController : MonoBehaviour
             other.gameObject.transform.parent.GetComponent<SpawnerController>().Invoke("SpawnComponent", 15);
             _shotComponentPrefab = other.gameObject.GetComponent<GetAtAbleComponent>().GetShotPrefab();
             _componentFormula = other.gameObject.GetComponent<GetAtAbleComponent>().GetComponentFormula();
-            _reader.SetReaderText(_componentFormula);
+            _pointer.SetComponentText(_componentFormula);
             _canShot = true;
             Destroy(other.gameObject);
         }
@@ -108,6 +104,6 @@ public class CanonController : MonoBehaviour
     private void PauseGame(bool isPausedValue)
     {
         //Call a method from the main game singleton
-        GameManager.IsGamePaused = isPausedValue;
+        InGameManager.IsGamePaused = isPausedValue;
     }
 }

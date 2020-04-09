@@ -9,19 +9,32 @@ public class Pointer : MonoBehaviour
     [Header("Line Renderer")]
     public float lineDistance = 10;
     public LineRenderer lineRenderer = default;
+
     [Space(5)]
     [Header("Target Sprite")]
     [SerializeField] private SpriteRenderer _circleSpriteRenderer = default;
     [SerializeField] private Sprite _circleSprite = default;
+
     [Space(5)]
     [Header("Object layers")]
     public LayerMask everythingMask = 0;
     public LayerMask interactableMask = 0;
     [HideInInspector] public GameObject currentObject = null;
+
     [Space(5)]
     [Header("Canon Shot Point")]
     public Transform shotPoint = default;
-    public Vector3 hitPoint = default;
+    [HideInInspector] public Vector3 hitPoint = default;
+
+    [Space(5)]
+    [Header("Canon Reader")]
+    [SerializeField] private CanonReaderCanvas _reader = default;
+    public CanonReaderCanvas Reader { get => _reader; }
+
+    //Text reader variables
+    private string _currentText = default;
+    private string _currentComponent = default;
+
     private Transform currentOrigin = null;
 
     void Awake()
@@ -65,25 +78,30 @@ public class Pointer : MonoBehaviour
             {
                 case "Floor":
                     endLineColor = Color.blue;
+                    _currentText = "Teletransportar";
                     break;
                 case "Component":
                     endLineColor = Color.green;
+                    _currentText = "Absorber";
                     break;
                 case "Enemy":
                     endLineColor = Color.red;
+                    _currentText = "Dispara!";
                     break;
                 case "Button":
                     endLineColor = Color.cyan;
+                    _currentText = hit.collider.gameObject.GetComponent<ButtonController>().GetOptionName();
                     break;
                 default:
                     endLineColor = Color.white;
+                    _currentText = _currentComponent;
                     break;
             }
         }
 
         //Set Color according to the hit object collider if it has
         SetLineColor(endLineColor);
-
+        _reader.SetReaderText(_currentText);
 
         //Set Position
         lineRenderer.SetPosition(0, currentOrigin.position);
@@ -140,4 +158,10 @@ public class Pointer : MonoBehaviour
         Color endColor = lineColor;
         lineRenderer.endColor = endColor;
     }
+
+    public void SetComponentText(string _componentText)
+    {
+        _currentComponent = _componentText;
+    }
+
 }

@@ -38,7 +38,7 @@ public class PlayerEvents : MonoBehaviour
         OVRManager.HMDMounted += PlayerFound;
         OVRManager.HMDUnmounted += PlayerLost;
         m_controllersSet = CreateControllerSets();
-        GameManager.IsGamePaused = false;
+        InGameManager.IsGamePaused = false;
     }
 
     void OnDestroy()

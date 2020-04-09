@@ -14,36 +14,20 @@ public abstract class CHEMSingleton<T> : MonoBehaviour where T : MonoBehaviour
 
     private static bool applicationIsQuitting = false;
 
-    public void OnDestroy()
-    {
-        applicationIsQuitting = true;
-    }
-
     public static T Instance
     {
         get
         {
-            if (applicationIsQuitting)
-            {
-                Debug.LogWarning("[Singleton] Instance " + typeof(T) + " already destroyed - returning null.");
-                return null;
-            }
-
             lock (_lock)
             {
                 if (_instance == null)
                 {
                     _instance = (T)FindObjectOfType(typeof(T));
-
-                    if (_instance == null)
+                    if(_instance != null)
                     {
-                        GameObject singleton = null;
-                        singleton = new GameObject();
-                        _instance = singleton.AddComponent<T>();
-                        singleton.name = "(singleton) " + typeof(T).ToString();
-                        DontDestroyOnLoad(singleton);
 
                     }
+                    // Debug.Log("[Singleton] An instance of " + typeof(T) + // 	" is needed in the scene, so '" + singleton + // 	"' was created with DontDestroyOnLoad.");
                 }
                 return _instance;
             }

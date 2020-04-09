@@ -357,7 +357,8 @@
     <Compile Include="Assets\Scripts\Enemies\EnemyController.cs" />
     <Compile Include="Assets\Scripts\ScriptableObjects\ChemicalComponent.cs" />
     <Compile Include="Assets\Scripts\Singleton\CHEMSingleton.cs" />
-    <Compile Include="Assets\Scripts\Singleton\GameManager.cs" />
+    <Compile Include="Assets\Scripts\Singleton\InGameManager.cs" />
+    <Compile Include="Assets\Scripts\Singleton\MenuManager.cs" />
     <Compile Include="Assets\Scripts\Singleton\PlayerEvents.cs" />
     <Compile Include="Assets\Scripts\UI\Buttons\ButtonController.cs" />
     <Compile Include="Assets\Scripts\UI\Canvas\CanvasManager.cs" />
@@ -430,6 +431,9 @@
     <Reference Include="Unity.RenderPipelines.ShaderGraph.ShaderGraphLibrary">
       <HintPath>E:/Programming/Unity/Projects/Proyecto-de-grado-VR/VR Project/Library/ScriptAssemblies/Unity.RenderPipelines.ShaderGraph.ShaderGraphLibrary.dll</HintPath>
     </Reference>
+    <Reference Include="Unity.2D.Sprite.Editor">
+      <HintPath>E:/Programming/Unity/Projects/Proyecto-de-grado-VR/VR Project/Library/ScriptAssemblies/Unity.2D.Sprite.Editor.dll</HintPath>
+    </Reference>
     <Reference Include="Unity.Postprocessing.Runtime">
       <HintPath>E:/Programming/Unity/Projects/Proyecto-de-grado-VR/VR Project/Library/ScriptAssemblies/Unity.Postprocessing.Runtime.dll</HintPath>
     </Reference>
@@ -444,9 +448,6 @@
     </Reference>
     <Reference Include="UnityEditor.UI">
       <HintPath>E:/Programming/Unity/Projects/Proyecto-de-grado-VR/VR Project/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.2D.Sprite.Editor">
-      <HintPath>E:/Programming/Unity/Projects/Proyecto-de-grado-VR/VR Project/Library/ScriptAssemblies/Unity.2D.Sprite.Editor.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.AIModule">
       <HintPath>C:/Program Files/Unity/Hub/Editor/2019.2.16f1/Editor/Data/Managed/UnityEngine/UnityEngine.AIModule.dll</HintPath>

@@ -24,7 +24,8 @@ public class ButtonController : MonoBehaviour
         switch(_buttonOption)
         {
             case Option.Start:
-                SceneManager.LoadScene("Level_01");
+                InGameManager.MainCanvas.FadePanelWindow.SetFadeAnimation();
+                Invoke("LoadLevel", 0.3f);
                 break;
             case Option.Controls:
                 break;
@@ -43,5 +44,15 @@ public class ButtonController : MonoBehaviour
                 Application.Quit();
                 break;
         }
+    }
+
+    public string GetOptionName()
+    {
+        return _buttonOption.ToString();
+    }
+
+    private void LoadLevel()
+    {
+        SceneManager.LoadScene("Level_01");
     }
 }
