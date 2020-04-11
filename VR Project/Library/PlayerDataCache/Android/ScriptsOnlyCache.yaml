@@ -6,15 +6,20 @@ ScriptsOnlyBuild:
     - CanonReaderCanvas
     - CanvasManager
     - ChemicalComponent
+    - ControlPanel
     - EnemyController
+    - FactsController
     - FadePanel
     - GetAtAbleComponent
     - InGameManager
     - ONSPSettings
+    - PauseController
     - PlayerEvents
     - Pointer
     - ShotableComponent
     - SpawnerController
+    - TitleController
+    - UIController
     Oculus.VR.Editor.dll:
     - Assets.Oculus.VR.Editor.OVRPlatformToolSettings
     - OVRConfig
@@ -99,6 +104,8 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 11094}
     - Class: 114
+      Script: {instanceID: 11288}
+    - Class: 114
       Script: {instanceID: 11358}
     - Class: 114
       Script: {instanceID: 11530}
@@ -113,25 +120,35 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 12094}
     - Class: 114
-      Script: {instanceID: 12700}
+      Script: {instanceID: 12230}
     - Class: 114
-      Script: {instanceID: 12828}
+      Script: {instanceID: 12702}
     - Class: 114
-      Script: {instanceID: 13086}
+      Script: {instanceID: 12830}
     - Class: 114
-      Script: {instanceID: 13220}
+      Script: {instanceID: 13088}
     - Class: 114
-      Script: {instanceID: 13234}
+      Script: {instanceID: 13222}
     - Class: 114
-      Script: {instanceID: 13282}
+      Script: {instanceID: 13236}
     - Class: 114
-      Script: {instanceID: 13452}
+      Script: {instanceID: 13284}
     - Class: 114
-      Script: {instanceID: 13882}
+      Script: {instanceID: 13454}
     - Class: 114
-      Script: {instanceID: 14024}
+      Script: {instanceID: 13884}
     - Class: 114
-      Script: {instanceID: 14032}
+      Script: {instanceID: 14026}
+    - Class: 114
+      Script: {instanceID: 14034}
+    - Class: 114
+      Script: {instanceID: 59090}
+    - Class: 114
+      Script: {instanceID: 59096}
+    - Class: 114
+      Script: {instanceID: 59106}
+    - Class: 114
+      Script: {instanceID: 59114}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 120
@@ -146,13 +163,13 @@ ScriptsOnlyBuild:
       Script: {instanceID: 0}
     - Class: 212
       Script: {instanceID: 0}
-    - Class: 213
-      Script: {instanceID: 0}
     - Class: 222
       Script: {instanceID: 0}
     - Class: 223
       Script: {instanceID: 0}
     - Class: 224
+      Script: {instanceID: 0}
+    - Class: 225
       Script: {instanceID: 0}
     Assets/Scenes/MainMenu.unity:
     - Class: 1
@@ -220,29 +237,31 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 12094}
     - Class: 114
-      Script: {instanceID: 12700}
+      Script: {instanceID: 12230}
     - Class: 114
-      Script: {instanceID: 12828}
+      Script: {instanceID: 12702}
     - Class: 114
-      Script: {instanceID: 13086}
+      Script: {instanceID: 12830}
     - Class: 114
-      Script: {instanceID: 13220}
+      Script: {instanceID: 13088}
     - Class: 114
-      Script: {instanceID: 13234}
+      Script: {instanceID: 13222}
     - Class: 114
-      Script: {instanceID: 13282}
+      Script: {instanceID: 13236}
     - Class: 114
-      Script: {instanceID: 13314}
+      Script: {instanceID: 13284}
     - Class: 114
-      Script: {instanceID: 13412}
+      Script: {instanceID: 13316}
     - Class: 114
-      Script: {instanceID: 13452}
+      Script: {instanceID: 13414}
     - Class: 114
-      Script: {instanceID: 13882}
+      Script: {instanceID: 13454}
     - Class: 114
-      Script: {instanceID: 14024}
+      Script: {instanceID: 13884}
     - Class: 114
-      Script: {instanceID: 14032}
+      Script: {instanceID: 14026}
+    - Class: 114
+      Script: {instanceID: 14034}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 120
@@ -260,6 +279,8 @@ ScriptsOnlyBuild:
     - Class: 223
       Script: {instanceID: 0}
     - Class: 224
+      Script: {instanceID: 0}
+    - Class: 225
       Script: {instanceID: 0}
   scriptHashData:
   - hash:
@@ -774,7 +795,7 @@ ScriptsOnlyBuild:
     className: OvrAvatarSettings
   - hash:
       serializedVersion: 2
-      Hash: 6c149b4a7d3ebd140be56b295ae4a413
+      Hash: 78eb748f48f217c7f4c9ae5eeca2657b
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: ButtonController
@@ -888,7 +909,7 @@ ScriptsOnlyBuild:
     className: OVRHeadsetEmulator
   - hash:
       serializedVersion: 2
-      Hash: 0e2f5a8ac99cf5395f6decace45d0eed
+      Hash: 8d7285f5d919a70641cc726375f6f9e0
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Pointer
@@ -1182,6 +1203,12 @@ ScriptsOnlyBuild:
     className: TeleportAimVisualLaser
   - hash:
       serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: TitleController
+  - hash:
+      serializedVersion: 2
       Hash: c62775f7279ea30b4981a8322d28585a
     assemblyName: Assembly-CSharp.dll
     namespaceName: Oculus.Platform.Samples.NetChat
@@ -1446,7 +1473,7 @@ ScriptsOnlyBuild:
     className: OvrAvatarSettingsEditor
   - hash:
       serializedVersion: 2
-      Hash: bed2e807cb038b3af069992856550c62
+      Hash: db20ec5bb53b6d2ea27799906f39df5b
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: InGameManager
@@ -1870,6 +1897,30 @@ ScriptsOnlyBuild:
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
     className: PlayableTrack
+  - hash:
+      serializedVersion: 2
+      Hash: 50f883e6036858d2242c44b25f99a518
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: PauseController
+  - hash:
+      serializedVersion: 2
+      Hash: 45123fc611a9710d016db82b8ceb63df
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: UIController
+  - hash:
+      serializedVersion: 2
+      Hash: e8cea1cde19ae1feb3450af11a0649aa
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: FactsController
+  - hash:
+      serializedVersion: 2
+      Hash: e9ae789cf2cfdd42f1f8c9409b39b387
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: ControlPanel
   platform: 13
   scenePathNames:
   - Assets/Scenes/MainMenu.unity

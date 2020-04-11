@@ -10,4 +10,9 @@ public class FadePanel : MonoBehaviour
     {
         _fadePanelAnimator.SetTrigger("FadeTeleport");
     }
+
+    public void SetPauseFade(bool fadeState)
+    {
+        _fadePanelAnimator.SetBool("", fadeState);
+    }
 }

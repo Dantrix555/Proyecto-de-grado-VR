@@ -7,7 +7,7 @@ public class CanonController : MonoBehaviour
 {
     [Header("Pointer GameObject")]
     [SerializeField] private Pointer _pointer = default;
-
+    
     //Public reference to the canon pointer
     public Pointer Pointer { get => _pointer; }
 
@@ -23,6 +23,7 @@ public class CanonController : MonoBehaviour
     private void Awake()
     {
         PlayerEvents.OnTriggerDown += OnOculusTriggerDown;
+        PlayerEvents.OnBackButtonDown += OnButtonPause;
     }
 
     void Start()
@@ -35,6 +36,7 @@ public class CanonController : MonoBehaviour
     private void OnDestroy()
     {
         PlayerEvents.OnTriggerDown -= OnOculusTriggerDown;
+        PlayerEvents.OnBackButtonDown -= OnButtonPause;
     }
 
     private void OnOculusTriggerDown()
@@ -47,14 +49,17 @@ public class CanonController : MonoBehaviour
                 {
                     case "Floor":
                         InGameManager.MainCanvas.FadePanelWindow.SetFadeAnimation();
-                        StartCoroutine(TeleportPlayer(new Vector3(_pointer.hitPoint.x, transform.position.y, _pointer.hitPoint.z)));
+                        StartCoroutine(InGameManager.TeleportPlayer(new Vector3(_pointer.hitPoint.x, transform.position.y, _pointer.hitPoint.z), gameObject));
                         break;
                     case "Component":
                         GameObject componentObject = _pointer.currentObject;
                         componentObject.GetComponent<Rigidbody>().velocity = (transform.position - componentObject.transform.position) * _absorbSpeed;
                         break;
                     case "Button":
-                        _pointer.currentObject.GetComponent<ButtonController>().CheckOption();
+                        if(_pointer.currentObject.GetComponent<ButtonController>().IsInteractable)
+                        {
+                            _pointer.currentObject.GetComponent<ButtonController>().CheckOption();
+                        }
                         break;
                     default:
                         Shot();
@@ -63,6 +68,33 @@ public class CanonController : MonoBehaviour
             }
             else
                 Shot();
+        }
+        else
+        {
+            if (_pointer.currentObject != null)
+            {
+                switch (_pointer.currentObject.tag)
+                {
+                    case "Button":
+                        if (_pointer.currentObject.GetComponent<ButtonController>().IsInteractable)
+                        {
+                            _pointer.currentObject.GetComponent<ButtonController>().CheckOption();
+                        }
+                        break;
+                }
+            }
+        }
+    }
+
+    private void OnButtonPause()
+    {
+        if(InGameManager.IsGamePaused)
+        {
+            InGameManager.ResumeGame();
+        }
+        else
+        {
+            InGameManager.SetPause();
         }
     }
 
@@ -79,15 +111,6 @@ public class CanonController : MonoBehaviour
         }
     }
 
-    private IEnumerator TeleportPlayer(Vector3 newPosition)
-    {
-        PauseGame(true);
-        yield return new WaitForSeconds(0.5f);
-        transform.position = newPosition;
-        yield return new WaitForSeconds(0.5f);
-        PauseGame(false);
-    }
-
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag == "Component")
@@ -99,11 +122,5 @@ public class CanonController : MonoBehaviour
             _canShot = true;
             Destroy(other.gameObject);
         }
-    }
-
-    private void PauseGame(bool isPausedValue)
-    {
-        //Call a method from the main game singleton
-        InGameManager.IsGamePaused = isPausedValue;
     }
 }

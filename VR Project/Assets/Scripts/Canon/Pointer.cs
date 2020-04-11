@@ -11,11 +11,6 @@ public class Pointer : MonoBehaviour
     public LineRenderer lineRenderer = default;
 
     [Space(5)]
-    [Header("Target Sprite")]
-    [SerializeField] private SpriteRenderer _circleSpriteRenderer = default;
-    [SerializeField] private Sprite _circleSprite = default;
-
-    [Space(5)]
     [Header("Object layers")]
     public LayerMask everythingMask = 0;
     public LayerMask interactableMask = 0;
@@ -55,8 +50,6 @@ public class Pointer : MonoBehaviour
     void Update()
     {
         hitPoint = UpdateLine();
-        //Set the circle sprite renderer in the hit position
-        _circleSpriteRenderer.gameObject.transform.position = hitPoint;
         currentObject = UpdatePointerStatus();
     }
 
@@ -69,12 +62,12 @@ public class Pointer : MonoBehaviour
         Vector3 endPosition = currentOrigin.position + (currentOrigin.forward * lineDistance);
 
         Color endLineColor = Color.white;
-        
+
         //Check hit and set the line until the position of the object
-        if (hit.collider != null)
+        if (hit.collider != null && !InGameManager.IsGamePaused)
         {
             endPosition = hit.point;
-            switch(hit.collider.tag)
+            switch (hit.collider.tag)
             {
                 case "Floor":
                     endLineColor = Color.blue;
@@ -89,8 +82,11 @@ public class Pointer : MonoBehaviour
                     _currentText = "Dispara!";
                     break;
                 case "Button":
-                    endLineColor = Color.cyan;
-                    _currentText = hit.collider.gameObject.GetComponent<ButtonController>().GetOptionName();
+                    if (hit.collider.gameObject.GetComponent<ButtonController>().IsInteractable)
+                    {
+                        endLineColor = Color.cyan;
+                        _currentText = hit.collider.gameObject.GetComponent<ButtonController>().GetOptionName();
+                    }
                     break;
                 default:
                     endLineColor = Color.white;
@@ -98,7 +94,24 @@ public class Pointer : MonoBehaviour
                     break;
             }
         }
-
+        else if (hit.collider != null && InGameManager.IsGamePaused)
+        {
+            endPosition = hit.point;
+            switch (hit.collider.tag)
+            {
+                case "Button":
+                    if (hit.collider.gameObject.GetComponent<ButtonController>().IsInteractable)
+                    {
+                        endLineColor = Color.cyan;
+                        _currentText = hit.collider.gameObject.GetComponent<ButtonController>().GetOptionName();
+                    }
+                    break;
+                default:
+                    endLineColor = Color.white;
+                    _currentText = _currentComponent;
+                    break;
+            }
+        }
         //Set Color according to the hit object collider if it has
         SetLineColor(endLineColor);
         _reader.SetReaderText(_currentText);
@@ -133,11 +146,9 @@ public class Pointer : MonoBehaviour
         //Check hit
         if (hit.collider)
         {
-            _circleSpriteRenderer.sprite = _circleSprite;
             return hit.collider.gameObject;
         }
 
-        _circleSpriteRenderer.sprite = null;
         //Return
         return null;
     }
