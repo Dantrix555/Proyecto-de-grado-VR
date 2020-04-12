@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 public class InGameManager : CHEMSingleton<InGameManager>
@@ -32,19 +33,33 @@ public class InGameManager : CHEMSingleton<InGameManager>
     public static SpawnerController[] SpawnerControllers { get => Instance._spawnerControllers; }
     public static UIController GameUI { get => Instance._gameUi; }
 
-    private bool _isInGameScene = default;
+    public Text debugText;
+    public static Text DebugText { get => Instance.debugText; }
+    //public GameObject button;
+    //private int x;
+
+    [SerializeField] private bool _isInGameScene;
     private bool _isGamePaused = false;
+    private bool _isInDescription = false;
+    private bool _gameOver = false;
 
     public static bool IsGameScene { get => Instance._isInGameScene; set => Instance._isInGameScene = value; }
     public static bool IsGamePaused { get => Instance._isGamePaused; set => Instance._isGamePaused = value; }
+    public static bool IsInDescription { get => Instance._isInDescription; set => Instance._isInDescription = value; }
+    public static bool GameOver { get => Instance._gameOver; set => Instance._gameOver = value; }
+
+    private HashSet<int> _componentDex = new HashSet<int>();
 
     void Start()
     {
-        //Set the components as a child of their respective spawner
-        for (int i = 0; i < _spawnerControllers.Length; i++)
+        if(_spawnerControllers.Length > 0)
         {
-            _spawnerControllers[i].SpawnComponent();
+            for (int i = 0; i < _spawnerControllers.Length; i++)
+            {
+                _spawnerControllers[i].SpawnComponent();
+            }
         }
+        //Set the components as a child of their respective spawner
     }
 
     //Operation is a variable that takes 2 values in or out, to determine the fade effect
@@ -52,11 +67,11 @@ public class InGameManager : CHEMSingleton<InGameManager>
     {
         float i;
         Color actualMaterialColor = objectToFade.GetComponent<MeshRenderer>().material.color;
-
+        
         if (operation == FadeOperation.In)
         {
             objectToFade.SetActive(true);
-            for (i = 0; i <= 1; i += 0.05f)
+            for (i = 0; i < 1; i += 0.05f)
             {
                 actualMaterialColor.a = i;
                 objectToFade.GetComponent<MeshRenderer>().material.color = actualMaterialColor;
@@ -65,7 +80,7 @@ public class InGameManager : CHEMSingleton<InGameManager>
         }
         else if (operation == FadeOperation.Out)
         {
-            for (i = 1; i >= 0; i -= 0.05f)
+            for (i = 1; i > 0; i -= 0.05f)
             {
                 actualMaterialColor.a = i;
                 objectToFade.GetComponent<MeshRenderer>().material.color = actualMaterialColor;
@@ -73,12 +88,13 @@ public class InGameManager : CHEMSingleton<InGameManager>
             }
             objectToFade.SetActive(false);
         }
+
     }
 
     public static IEnumerator LoadLevel(Level levelToLoad)
     {
         MainCanvas.FadePanelWindow.SetFadeAnimation();
-        yield return new WaitForSeconds(0.4f);
+        yield return new WaitForSeconds(0.3f);
         SceneManager.LoadScene(levelToLoad.ToString());
     }
 
@@ -106,5 +122,15 @@ public class InGameManager : CHEMSingleton<InGameManager>
         else
             GameUI.ControlPanel.FadeOutControlPanel();
         IsGamePaused = false;
+    }
+
+    public static bool ComponentIsInDex(int componentId)
+    {
+        if(Instance._componentDex.Contains(componentId))
+        {
+            return true;
+        }
+        Instance._componentDex.Add(componentId);
+        return false;
     }
 }

@@ -7,8 +7,8 @@ public class FactsController : MonoBehaviour
 {
     [SerializeField] private GameObject _factTitle;
     [SerializeField] private GameObject _factBackground = default;
-    [SerializeField] private Animator _factAnimator = default;
     [SerializeField] private GameObject _acceptButton = default;
+    [SerializeField] private Animator _canvasAnimator;
     [SerializeField] private Text _factText = default;
 
     public void SetText(string factText)
@@ -20,8 +20,15 @@ public class FactsController : MonoBehaviour
     {
         _factTitle.SetActive(true);
         _factTitle.GetComponent<TitleController>().SetFade("In");
-        InGameManager.SetFade(InGameManager.FadeOperation.In, _factBackground);
-        InGameManager.SetFade(InGameManager.FadeOperation.In, _acceptButton);
-        _factAnimator.SetTrigger("Fade");
+        StartCoroutine(InGameManager.SetFade(InGameManager.FadeOperation.In, _factBackground));
+        StartCoroutine(InGameManager.SetFade(InGameManager.FadeOperation.In, _acceptButton));
+        StartCoroutine(_acceptButton.GetComponent<ButtonController>().SetInteractAtAble());
+        AnimateFactText(true);
+        //Set the screen a little darker
+    }
+
+    public void AnimateFactText(bool animationState)
+    {
+        _canvasAnimator.SetBool("Fade", animationState);
     }
 }

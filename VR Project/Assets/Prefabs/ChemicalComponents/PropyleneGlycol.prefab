@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 6724893189217657470}
   - component: {fileID: 7765061336519084702}
   - component: {fileID: 4553391817164775665}
+  - component: {fileID: -6814450423935387271}
   m_Layer: 10
   m_Name: PropyleneGlycol
   m_TagString: Component
@@ -28,13 +29,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2294518735018135980}
-  m_LocalRotation: {x: -0.7071068, y: -0, z: -0, w: 0.7071067}
+  m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: -0.7071068}
   m_LocalPosition: {x: 0, y: 2, z: 0}
-  m_LocalScale: {x: 60, y: 20, z: 60}
+  m_LocalScale: {x: 30, y: 10, z: 30}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 270, y: 0, z: 0}
 --- !u!33 &6113526294059014537
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -125,3 +126,22 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.019623771, y: 0.019999996, z: 0.028648283}
   m_Center: {x: 0.00006260723, y: 0, z: 0.0017539451}
+--- !u!95 &-6814450423935387271
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2294518735018135980}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: a53930680f7273541a8851907cf20a0f, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0

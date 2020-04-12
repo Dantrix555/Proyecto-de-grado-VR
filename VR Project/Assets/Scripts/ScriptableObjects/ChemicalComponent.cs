@@ -8,6 +8,7 @@ public class ChemicalComponent : ScriptableObject
     public int id;
     public new string name;
     public string formula;
+    public string description;
     public GameObject componentObject;
     public GameObject shotObject;
 }

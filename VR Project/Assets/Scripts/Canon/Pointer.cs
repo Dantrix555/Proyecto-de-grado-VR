@@ -99,7 +99,7 @@ public class Pointer : MonoBehaviour
             endPosition = hit.point;
             switch (hit.collider.tag)
             {
-                case "Button":
+                case "Button":                    
                     if (hit.collider.gameObject.GetComponent<ButtonController>().IsInteractable)
                     {
                         endLineColor = Color.cyan;

@@ -363,6 +363,7 @@
     <Compile Include="Assets\Scripts\UI\Buttons\ButtonController.cs" />
     <Compile Include="Assets\Scripts\UI\Canvas\CanvasManager.cs" />
     <Compile Include="Assets\Scripts\UI\Canvas\FadePanel.cs" />
+    <Compile Include="Assets\Scripts\UI\Images\ImageController.cs" />
     <Compile Include="Assets\Scripts\UI\Pause\ControlPanel.cs" />
     <Compile Include="Assets\Scripts\UI\Pause\FactsController.cs" />
     <Compile Include="Assets\Scripts\UI\Pause\PauseController.cs" />

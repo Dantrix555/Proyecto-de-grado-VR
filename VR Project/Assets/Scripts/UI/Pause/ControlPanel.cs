@@ -13,6 +13,8 @@ public class ControlPanel : MonoBehaviour
         _titleControl.GetComponent<TitleController>().SetFade("Out");
         _titleControl.SetActive(false);
         StartCoroutine(InGameManager.SetFade(InGameManager.FadeOperation.Out, _imageControl));
+        _acceptButton.GetComponent<ButtonController>().IsInteractable = false;
+        _acceptButton.GetComponent<ButtonController>().CanvasAnimator.SetBool("Fade", false);
         StartCoroutine(InGameManager.SetFade(InGameManager.FadeOperation.Out, _acceptButton));
     }
 }

@@ -13,8 +13,11 @@ MonoBehaviour:
   m_Name: SodiumPermanganate
   m_EditorClassIdentifier: 
   id: 1
-  name: Permanganato de sodio
-  formula: NaMnO4
+  name: Permanganato de potasio
+  formula: KMnO4
+  description: "El permanganato de potasio, tambi\xE9n conocido como KMnO4, sirve
+    para potabilizar el agua por su alto poder oxidante, usalo cuando veas charcos
+    con insectos alrededor"
   componentObject: {fileID: 2501088019312097092, guid: 7abfbbab69139d246927423aa7281f3d,
     type: 3}
   shotObject: {fileID: 6328714486357033285, guid: 678b8461c4fedea4d8fda0fa10aad253,

@@ -15,6 +15,9 @@ MonoBehaviour:
   id: 2
   name: "\xC1cido Borico"
   formula: H3BO3
+  description: "El \xE1cido b\xF3rico, H3BO3, se utiliza en los insecticidas, ya sabes
+    que significa si ves uno cerca."
   componentObject: {fileID: 3137202515154497226, guid: 1f880b138da1b8946aee985557ff6cb3,
     type: 3}
-  shotObject: {fileID: 0}
+  shotObject: {fileID: 6328714486357033285, guid: 678b8461c4fedea4d8fda0fa10aad253,
+    type: 3}

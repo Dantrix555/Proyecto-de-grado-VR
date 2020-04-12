@@ -10,10 +10,7 @@ public class CanonController : MonoBehaviour
     
     //Public reference to the canon pointer
     public Pointer Pointer { get => _pointer; }
-
-    //[Header("Debug References")]
-    //[SerializeField] private Text _debugText = default;
-
+    
     private GameObject _shotComponentPrefab;
     private string _componentFormula;
     private bool _canShot;
@@ -41,7 +38,7 @@ public class CanonController : MonoBehaviour
 
     private void OnOculusTriggerDown()
     {
-        if(!InGameManager.IsGamePaused)
+        if(!InGameManager.IsGamePaused && !InGameManager.IsInDescription && !InGameManager.GameOver)
         {
             if (_pointer.currentObject != null)
             {
@@ -88,13 +85,16 @@ public class CanonController : MonoBehaviour
 
     private void OnButtonPause()
     {
-        if(InGameManager.IsGamePaused)
+        if(InGameManager.IsGameScene && !InGameManager.IsInDescription && !InGameManager.GameOver)
         {
-            InGameManager.ResumeGame();
-        }
-        else
-        {
-            InGameManager.SetPause();
+            if(InGameManager.IsGamePaused)
+            {
+                InGameManager.ResumeGame();
+            }
+            else
+            {
+                InGameManager.SetPause();
+            }
         }
     }
 
