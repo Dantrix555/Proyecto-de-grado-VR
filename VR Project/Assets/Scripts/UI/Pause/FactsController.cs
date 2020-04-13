@@ -23,8 +23,6 @@ public class FactsController : MonoBehaviour
         StartCoroutine(InGameManager.SetFade(InGameManager.FadeOperation.In, _factBackground));
         StartCoroutine(InGameManager.SetFade(InGameManager.FadeOperation.In, _acceptButton));
         StartCoroutine(_acceptButton.GetComponent<ButtonController>().SetInteractAtAble());
-        AnimateFactText(true);
-        //Set the screen a little darker
     }
 
     public void AnimateFactText(bool animationState)

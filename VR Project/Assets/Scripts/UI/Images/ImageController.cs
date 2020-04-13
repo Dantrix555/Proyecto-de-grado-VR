@@ -6,7 +6,7 @@ public class ImageController : MonoBehaviour
 {
     public IEnumerator DeactivateImage()
     {
-        yield return new WaitForSeconds(0.9f);
+        yield return new WaitForSeconds(1f);
         gameObject.SetActive(false);
     }
 }

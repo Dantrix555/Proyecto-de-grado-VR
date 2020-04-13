@@ -6,7 +6,7 @@ public class EnemyController : MonoBehaviour
 {
     private enum Weakness
     {
-        NaMnO4,
+        KMnO4,
         NaClO,
         C3H8O2,
         H3BO3

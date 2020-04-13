@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a7e150db634e85a49950b00fe05dc712, type: 3}
-  m_Name: SodiumPermanganate
+  m_Name: PotassiumPermanganate
   m_EditorClassIdentifier: 
   id: 1
   name: Permanganato de potasio
@@ -18,7 +18,7 @@ MonoBehaviour:
   description: "El permanganato de potasio, tambi\xE9n conocido como KMnO4, sirve
     para potabilizar el agua por su alto poder oxidante, usalo cuando veas charcos
     con insectos alrededor"
-  componentObject: {fileID: 2501088019312097092, guid: 7abfbbab69139d246927423aa7281f3d,
+  componentObject: {fileID: 5644299953053622717, guid: 43ec0e17faed3bc4eb68362fc76bb25e,
     type: 3}
   shotObject: {fileID: 6328714486357033285, guid: 678b8461c4fedea4d8fda0fa10aad253,
     type: 3}

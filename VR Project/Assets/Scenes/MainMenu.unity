@@ -219,6 +219,7 @@ MonoBehaviour:
   _buttonToShow: {fileID: 0}
   _titleToShow: {fileID: 0}
   _objectToShow: {fileID: 0}
+  _isInteractable: 1
 --- !u!65 &47538772
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -585,6 +586,7 @@ MonoBehaviour:
   _buttonToShow: {fileID: 2067833047}
   _titleToShow: {fileID: 7682293901520896538}
   _objectToShow: {fileID: 1690208419}
+  _isInteractable: 0
 --- !u!65 &211563689
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1199,6 +1201,7 @@ MonoBehaviour:
   _buttonToShow: {fileID: 1158330340}
   _titleToShow: {fileID: 7986235998562641437}
   _objectToShow: {fileID: 177077085}
+  _isInteractable: 1
 --- !u!65 &433971309
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1264,10 +1267,10 @@ RectTransform:
   m_Father: {fileID: 1515054623}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 198.5, y: -22.85}
-  m_SizeDelta: {x: 397, y: 45.7}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &453487816
 MonoBehaviour:
@@ -1856,6 +1859,7 @@ MonoBehaviour:
   _buttonToShow: {fileID: 433971304}
   _titleToShow: {fileID: 7986235998562641437}
   _objectToShow: {fileID: 177077085}
+  _isInteractable: 0
 --- !u!65 &1158330343
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2556,7 +2560,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1515054623
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2948,7 +2952,7 @@ MonoBehaviour:
   _spawnerControllers: []
   _gameUi: {fileID: 0}
   debugText: {fileID: 453487817}
-  _isInGameScene: 0
+  _canUseGameControls: 0
 --- !u!1 &1811680769
 GameObject:
   m_ObjectHideFlags: 0
@@ -3585,6 +3589,7 @@ MonoBehaviour:
   _buttonToShow: {fileID: 211563686}
   _titleToShow: {fileID: 7682293901520896538}
   _objectToShow: {fileID: 1690208419}
+  _isInteractable: 1
 --- !u!65 &2067833052
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -5626,6 +5631,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _pointer: {fileID: 5252612991998716339}
+  _canonAnimator: {fileID: 0}
+  _arrow: {fileID: 0}
 --- !u!65 &5252310814028953433
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -7049,6 +7056,7 @@ MonoBehaviour:
   _buttonToShow: {fileID: 0}
   _titleToShow: {fileID: 0}
   _objectToShow: {fileID: 0}
+  _isInteractable: 1
 --- !u!65 &8296172667761808021
 BoxCollider:
   m_ObjectHideFlags: 0

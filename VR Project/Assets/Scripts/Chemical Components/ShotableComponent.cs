@@ -12,6 +12,7 @@ public class ShotableComponent : MonoBehaviour
     public void SetVelocity(Vector3 direction, float speed)
     {
         GetComponent<Rigidbody>().velocity = direction * speed;
+        Destroy(gameObject, 5);
     }
 
     //Temporally everything destroys the shot

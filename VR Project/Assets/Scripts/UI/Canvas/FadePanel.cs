@@ -13,6 +13,6 @@ public class FadePanel : MonoBehaviour
 
     public void SetPauseFade(bool fadeState)
     {
-        _fadePanelAnimator.SetBool("", fadeState);
+        _fadePanelAnimator.SetBool("FadePause", fadeState);
     }
 }

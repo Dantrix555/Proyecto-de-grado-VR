@@ -38,15 +38,11 @@ public class InGameManager : CHEMSingleton<InGameManager>
     //public GameObject button;
     //private int x;
 
-    [SerializeField] private bool _isInGameScene;
+    [SerializeField] private bool _canUseGameControls;
     private bool _isGamePaused = false;
-    private bool _isInDescription = false;
-    private bool _gameOver = false;
 
-    public static bool IsGameScene { get => Instance._isInGameScene; set => Instance._isInGameScene = value; }
+    public static bool CanUseGameControls { get => Instance._canUseGameControls; set => Instance._canUseGameControls = value; }
     public static bool IsGamePaused { get => Instance._isGamePaused; set => Instance._isGamePaused = value; }
-    public static bool IsInDescription { get => Instance._isInDescription; set => Instance._isInDescription = value; }
-    public static bool GameOver { get => Instance._gameOver; set => Instance._gameOver = value; }
 
     private HashSet<int> _componentDex = new HashSet<int>();
 
@@ -100,11 +96,11 @@ public class InGameManager : CHEMSingleton<InGameManager>
 
     public static IEnumerator TeleportPlayer(Vector3 teleportPosition, GameObject player)
     {
-        IsGamePaused = true;
+        CanUseGameControls = false;
         yield return new WaitForSeconds(0.5f);
         player.transform.position = teleportPosition;
         yield return new WaitForSeconds(0.5f);
-        IsGamePaused = false;
+        CanUseGameControls = true;
     }
 
     public static void SetPause()
@@ -124,6 +120,13 @@ public class InGameManager : CHEMSingleton<InGameManager>
         IsGamePaused = false;
     }
 
+    public static void ActivateDescription(bool activationState)
+    {
+        GameUI.FactsController.AnimateFactText(activationState);
+        MainCanvas.FadePanelWindow.SetPauseFade(activationState);
+        CanUseGameControls = !activationState;
+    }
+
     public static bool ComponentIsInDex(int componentId)
     {
         if(Instance._componentDex.Contains(componentId))
@@ -133,4 +136,5 @@ public class InGameManager : CHEMSingleton<InGameManager>
         Instance._componentDex.Add(componentId);
         return false;
     }
+
 }

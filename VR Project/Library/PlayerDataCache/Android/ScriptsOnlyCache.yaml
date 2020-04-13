@@ -103,55 +103,55 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 10544}
     - Class: 114
-      Script: {instanceID: 10762}
+      Script: {instanceID: 10728}
     - Class: 114
-      Script: {instanceID: 10768}
+      Script: {instanceID: 10764}
     - Class: 114
-      Script: {instanceID: 11098}
+      Script: {instanceID: 10770}
     - Class: 114
-      Script: {instanceID: 11292}
+      Script: {instanceID: 11100}
     - Class: 114
-      Script: {instanceID: 11362}
+      Script: {instanceID: 11294}
     - Class: 114
-      Script: {instanceID: 11534}
+      Script: {instanceID: 11364}
     - Class: 114
-      Script: {instanceID: 11562}
+      Script: {instanceID: 11536}
     - Class: 114
-      Script: {instanceID: 11786}
+      Script: {instanceID: 11564}
     - Class: 114
-      Script: {instanceID: 11948}
+      Script: {instanceID: 11788}
     - Class: 114
-      Script: {instanceID: 11970}
+      Script: {instanceID: 11950}
     - Class: 114
-      Script: {instanceID: 12098}
+      Script: {instanceID: 11972}
     - Class: 114
-      Script: {instanceID: 12234}
+      Script: {instanceID: 12100}
     - Class: 114
-      Script: {instanceID: 12706}
+      Script: {instanceID: 12236}
     - Class: 114
-      Script: {instanceID: 12834}
+      Script: {instanceID: 12708}
     - Class: 114
-      Script: {instanceID: 13092}
+      Script: {instanceID: 12836}
     - Class: 114
-      Script: {instanceID: 13222}
+      Script: {instanceID: 13094}
     - Class: 114
-      Script: {instanceID: 13228}
+      Script: {instanceID: 13224}
     - Class: 114
-      Script: {instanceID: 13242}
+      Script: {instanceID: 13230}
     - Class: 114
-      Script: {instanceID: 13290}
+      Script: {instanceID: 13244}
     - Class: 114
-      Script: {instanceID: 13460}
+      Script: {instanceID: 13292}
     - Class: 114
-      Script: {instanceID: 13890}
+      Script: {instanceID: 13462}
     - Class: 114
-      Script: {instanceID: 14032}
+      Script: {instanceID: 13892}
     - Class: 114
-      Script: {instanceID: 14040}
+      Script: {instanceID: 14034}
     - Class: 114
-      Script: {instanceID: 14148}
+      Script: {instanceID: 14042}
     - Class: 114
-      Script: {instanceID: 38378}
+      Script: {instanceID: 14150}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 120
@@ -220,53 +220,53 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 10516}
     - Class: 114
-      Script: {instanceID: 10768}
+      Script: {instanceID: 10728}
     - Class: 114
-      Script: {instanceID: 11098}
+      Script: {instanceID: 10770}
     - Class: 114
-      Script: {instanceID: 11206}
+      Script: {instanceID: 11100}
     - Class: 114
-      Script: {instanceID: 11292}
+      Script: {instanceID: 11208}
     - Class: 114
-      Script: {instanceID: 11362}
+      Script: {instanceID: 11294}
     - Class: 114
-      Script: {instanceID: 11534}
+      Script: {instanceID: 11364}
     - Class: 114
-      Script: {instanceID: 11562}
+      Script: {instanceID: 11536}
     - Class: 114
-      Script: {instanceID: 11786}
+      Script: {instanceID: 11564}
     - Class: 114
-      Script: {instanceID: 11970}
+      Script: {instanceID: 11788}
     - Class: 114
-      Script: {instanceID: 12098}
+      Script: {instanceID: 11972}
     - Class: 114
-      Script: {instanceID: 12234}
+      Script: {instanceID: 12100}
     - Class: 114
-      Script: {instanceID: 12706}
+      Script: {instanceID: 12236}
     - Class: 114
-      Script: {instanceID: 12834}
+      Script: {instanceID: 12708}
     - Class: 114
-      Script: {instanceID: 13092}
+      Script: {instanceID: 12836}
     - Class: 114
-      Script: {instanceID: 13228}
+      Script: {instanceID: 13094}
     - Class: 114
-      Script: {instanceID: 13242}
+      Script: {instanceID: 13230}
     - Class: 114
-      Script: {instanceID: 13290}
+      Script: {instanceID: 13244}
     - Class: 114
-      Script: {instanceID: 13322}
+      Script: {instanceID: 13292}
     - Class: 114
-      Script: {instanceID: 13420}
+      Script: {instanceID: 13324}
     - Class: 114
-      Script: {instanceID: 13460}
+      Script: {instanceID: 13422}
     - Class: 114
-      Script: {instanceID: 13890}
+      Script: {instanceID: 13462}
     - Class: 114
-      Script: {instanceID: 14032}
+      Script: {instanceID: 13892}
     - Class: 114
-      Script: {instanceID: 14040}
+      Script: {instanceID: 14034}
     - Class: 114
-      Script: {instanceID: 38378}
+      Script: {instanceID: 14042}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 120
@@ -602,6 +602,12 @@ ScriptsOnlyBuild:
     className: OVRPlayerController
   - hash:
       serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: ImageController
+  - hash:
+      serializedVersion: 2
       Hash: 8aa3d6ccbcb54ee8db6c1229854adaaa
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.UI
@@ -812,7 +818,7 @@ ScriptsOnlyBuild:
     className: OvrAvatarSettings
   - hash:
       serializedVersion: 2
-      Hash: 78eb748f48f217c7f4c9ae5eeca2657b
+      Hash: a896821bd65f8a042b13ace69257aea2
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: ButtonController
@@ -1142,7 +1148,7 @@ ScriptsOnlyBuild:
     className: OVRSceneLoader
   - hash:
       serializedVersion: 2
-      Hash: 54823021465f3e4b8534c60160fd7023
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: GetAtAbleComponent
@@ -1490,7 +1496,7 @@ ScriptsOnlyBuild:
     className: OvrAvatarSettingsEditor
   - hash:
       serializedVersion: 2
-      Hash: 9b1972332039c7d3cd6433a0f74fd5e4
+      Hash: 6c86aead56703cd3edbe202cad33fe96
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: InGameManager
@@ -1694,7 +1700,7 @@ ScriptsOnlyBuild:
     className: OVRGrabber
   - hash:
       serializedVersion: 2
-      Hash: c132bedeef9990aba73a53f66a515fdf
+      Hash: f9ff055027bddc0f0c9de4520e822a40
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: CanonController
@@ -1926,12 +1932,6 @@ ScriptsOnlyBuild:
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
     className: PlayableTrack
-  - hash:
-      serializedVersion: 2
-      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: ImageController
   platform: 13
   scenePathNames:
   - Assets/Scenes/MainMenu.unity

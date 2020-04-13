@@ -23,27 +23,31 @@ public class ButtonController : MonoBehaviour
     [SerializeField] private GameObject _titleToShow;
     [SerializeField] private GameObject _objectToShow;
 
-    private bool _isInteractable = true;
+    [Space(5)]
+    [Header("InteractableObject")]
+    [SerializeField]private bool _isInteractable;
     public bool IsInteractable { get => _isInteractable; set => _isInteractable = value; }
 
     public Animator CanvasAnimator { get => _canvasAnimator; }
 
     public void CheckOption()
     {
-        switch(_buttonOption)
+        IsInteractable = false;
+        CanvasAnimator.SetBool("Fade", false);
+
+        switch (_buttonOption)
         {
             case Option.Start:
+                InGameManager.CanUseGameControls = false;
                 StartCoroutine(InGameManager.LoadLevel(InGameManager.Level.Level_01));
                 break;
 
             case Option.Controls:
-                GetComponent<ButtonController>().IsInteractable = false;
-                GetComponent<ButtonController>().CanvasAnimator.SetBool("Fade", false);
                 StartCoroutine(InGameManager.SetFade(InGameManager.FadeOperation.Out, gameObject));
                 _titleToShow.SetActive(true);
                 _titleToShow.GetComponent<TitleController>().SetFade("In");
-                StartCoroutine(InGameManager.SetFade(InGameManager.FadeOperation.In, _buttonToShow));
                 StartCoroutine(_buttonToShow.GetComponent<ButtonController>().SetInteractAtAble());
+                StartCoroutine(InGameManager.SetFade(InGameManager.FadeOperation.In, _buttonToShow));
                 _buttonToShow.GetComponent<ButtonController>().CanvasAnimator.SetBool("Fade", true);
                 StartCoroutine(InGameManager.SetFade(InGameManager.FadeOperation.In, _objectToShow));
                 break;
@@ -52,20 +56,18 @@ public class ButtonController : MonoBehaviour
                 InGameManager.GameUI.PauseController.SetPauseFade("Out");
                 _titleToShow.SetActive(true);
                 _titleToShow.GetComponent<TitleController>().SetFade("In");
-                StartCoroutine(InGameManager.SetFade(InGameManager.FadeOperation.In, _buttonToShow));
                 StartCoroutine(_buttonToShow.GetComponent<ButtonController>().SetInteractAtAble());
+                StartCoroutine(InGameManager.SetFade(InGameManager.FadeOperation.In, _buttonToShow));
                 _buttonToShow.GetComponent<ButtonController>().CanvasAnimator.SetBool("Fade", true);
                 StartCoroutine(InGameManager.SetFade(InGameManager.FadeOperation.In, _objectToShow));
                 break;
 
             case Option.Credits:
-                GetComponent<ButtonController>().IsInteractable = false;
-                GetComponent<ButtonController>().CanvasAnimator.SetBool("Fade", false);
                 StartCoroutine(InGameManager.SetFade(InGameManager.FadeOperation.Out, gameObject));
                 _titleToShow.SetActive(true);
                 _titleToShow.GetComponent<TitleController>().SetFade("In");
-                StartCoroutine(InGameManager.SetFade(InGameManager.FadeOperation.In, _buttonToShow));
                 StartCoroutine(_buttonToShow.GetComponent<ButtonController>().SetInteractAtAble());
+                StartCoroutine(InGameManager.SetFade(InGameManager.FadeOperation.In, _buttonToShow));
                 _buttonToShow.GetComponent<ButtonController>().CanvasAnimator.SetBool("Fade", true);
                 StartCoroutine(InGameManager.SetFade(InGameManager.FadeOperation.In, _objectToShow));
                 break;
@@ -75,17 +77,19 @@ public class ButtonController : MonoBehaviour
                 break;
 
             case Option.Confirm:
-                IsInteractable = false;
-                CanvasAnimator.SetBool("Fade", false);
                 StartCoroutine(InGameManager.SetFade(InGameManager.FadeOperation.Out, gameObject));
                 _titleToShow.GetComponent<TitleController>().SetFade("Out");
                 _titleToShow.SetActive(false);
 
                 if (_buttonToShow != null)
                 {
-                    StartCoroutine(InGameManager.SetFade(InGameManager.FadeOperation.In, _buttonToShow));
                     StartCoroutine(_buttonToShow.GetComponent<ButtonController>().SetInteractAtAble());
+                    StartCoroutine(InGameManager.SetFade(InGameManager.FadeOperation.In, _buttonToShow));
                     _buttonToShow.GetComponent<ButtonController>().CanvasAnimator.SetBool("Fade", true);
+                }
+                else
+                {
+                    InGameManager.ActivateDescription(false);
                 }
 
                 if (_objectToShow != null)
@@ -94,17 +98,9 @@ public class ButtonController : MonoBehaviour
                     StartCoroutine(InGameManager.SetFade(InGameManager.FadeOperation.Out, _objectToShow));
                 }
 
-                if (InGameManager.IsInDescription)
-                {
-                    InGameManager.GameUI.FactsController.AnimateFactText(false);
-                    InGameManager.IsInDescription = false;
-                    //Fade pause panel
-                }
                 break;
 
             case Option.ConfirmControls:
-                IsInteractable = false;
-                CanvasAnimator.SetBool("Fade", false);
                 StartCoroutine(InGameManager.SetFade(InGameManager.FadeOperation.Out, gameObject));
                 _titleToShow.GetComponent<TitleController>().SetFade("Out");
                 _titleToShow.SetActive(false);
@@ -114,7 +110,7 @@ public class ButtonController : MonoBehaviour
                 break;
 
             case Option.GoMenu:
-                InGameManager.IsGameScene = false;
+                InGameManager.CanUseGameControls = false;
                 StartCoroutine(InGameManager.LoadLevel(InGameManager.Level.MainMenu));
                 break;
 
@@ -131,8 +127,8 @@ public class ButtonController : MonoBehaviour
 
     public IEnumerator SetInteractAtAble()
     {
-        yield return new WaitForSeconds(1);
-        this._isInteractable = true;
+        yield return new WaitForSeconds(1.1f);
+        _isInteractable = true;
     }
 
 }

@@ -7,27 +7,24 @@ public class CanonController : MonoBehaviour
 {
     [Header("Pointer GameObject")]
     [SerializeField] private Pointer _pointer = default;
+    [Space(5)]
+    [SerializeField] private Animator _canonAnimator = default;
+    [Space(5)]
+    [SerializeField] private GameObject _arrow = default;
     
     //Public reference to the canon pointer
     public Pointer Pointer { get => _pointer; }
     
     private GameObject _shotComponentPrefab;
     private string _componentFormula;
-    private bool _canShot;
-    private float _nextFire;
-    private float _absorbSpeed;
+    private bool _canShot = false;
+    private float _nextFire = 0.5f;
+    private float _absorbSpeed = 2.5f;
 
     private void Awake()
     {
         PlayerEvents.OnTriggerDown += OnOculusTriggerDown;
         PlayerEvents.OnBackButtonDown += OnButtonPause;
-    }
-
-    void Start()
-    {
-        _absorbSpeed = 2.5f;
-        _canShot = false;
-        _nextFire = 0.5f;
     }
 
     private void OnDestroy()
@@ -38,7 +35,7 @@ public class CanonController : MonoBehaviour
 
     private void OnOculusTriggerDown()
     {
-        if(!InGameManager.IsGamePaused && !InGameManager.IsInDescription && !InGameManager.GameOver)
+        if(InGameManager.CanUseGameControls && !InGameManager.IsGamePaused)
         {
             if (_pointer.currentObject != null)
             {
@@ -50,13 +47,7 @@ public class CanonController : MonoBehaviour
                         break;
                     case "Component":
                         GameObject componentObject = _pointer.currentObject;
-                        componentObject.GetComponent<Rigidbody>().velocity = (transform.position - componentObject.transform.position) * _absorbSpeed;
-                        break;
-                    case "Button":
-                        if(_pointer.currentObject.GetComponent<ButtonController>().IsInteractable)
-                        {
-                            _pointer.currentObject.GetComponent<ButtonController>().CheckOption();
-                        }
+                        componentObject.transform.parent.GetComponent<Rigidbody>().velocity = (transform.position - componentObject.transform.position) * _absorbSpeed;
                         break;
                     default:
                         Shot();
@@ -66,7 +57,7 @@ public class CanonController : MonoBehaviour
             else
                 Shot();
         }
-        else
+        else if(!InGameManager.CanUseGameControls || InGameManager.IsGamePaused)
         {
             if (_pointer.currentObject != null)
             {
@@ -85,7 +76,7 @@ public class CanonController : MonoBehaviour
 
     private void OnButtonPause()
     {
-        if(InGameManager.IsGameScene && !InGameManager.IsInDescription && !InGameManager.GameOver)
+        if(InGameManager.CanUseGameControls)
         {
             if(InGameManager.IsGamePaused)
             {
@@ -100,9 +91,11 @@ public class CanonController : MonoBehaviour
 
     private void Shot()
     {
-        if(_canShot)
+        if(_canShot && _shotComponentPrefab != null)
         {
-            _nextFire = Time.time;
+            _canonAnimator.SetTrigger("Shot");
+            Invoke("CanShot", 0.35f);
+            _canShot = false;
             GameObject _shotComponentInstance = Instantiate(_shotComponentPrefab, _pointer.shotPoint.transform.position, Quaternion.identity, transform);
             //Set to the pointer position because this script is attached to OVRCameraRig GameObject the absolute father of the other objects 
             //And the father has blocked its rotations
@@ -111,13 +104,18 @@ public class CanonController : MonoBehaviour
         }
     }
 
+    private void CanShot()
+    {
+        _canShot = true;
+    }
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag == "Component")
         {
-            other.gameObject.transform.parent.GetComponent<SpawnerController>().Invoke("SpawnComponent", 15);
-            _shotComponentPrefab = other.gameObject.GetComponent<GetAtAbleComponent>().GetShotPrefab();
-            _componentFormula = other.gameObject.GetComponent<GetAtAbleComponent>().GetComponentFormula();
+            other.gameObject.transform.parent.GetComponent<GetAtAbleComponent>().Invoke("SpawnComponent", 15);
+            _shotComponentPrefab = other.gameObject.transform.parent.GetComponent<GetAtAbleComponent>().GetShotPrefab();
+            _componentFormula = other.gameObject.transform.parent.GetComponent<GetAtAbleComponent>().GetComponentFormula();
             _pointer.SetComponentText(_componentFormula);
             _canShot = true;
             Destroy(other.gameObject);

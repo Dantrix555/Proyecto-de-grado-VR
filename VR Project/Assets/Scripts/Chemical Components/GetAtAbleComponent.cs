@@ -8,10 +8,7 @@ public class GetAtAbleComponent : MonoBehaviour
     private string formula = default;
     private string description = default;
     private GameObject shotComponentPrefab = default;
-
-    [Header("Rigidbody Component")]
-    [SerializeField] private Rigidbody _rigidbody = default;
-
+    
     public void SetComponentValues(int id, string formula, string description, GameObject shotComponentPrefab)
     {
         this.id = id;
@@ -24,7 +21,7 @@ public class GetAtAbleComponent : MonoBehaviour
     {
         if(!InGameManager.ComponentIsInDex(id))
         {
-            InGameManager.IsInDescription = true;
+            InGameManager.ActivateDescription(true);
             InGameManager.GameUI.FactsController.SetText(description);
             InGameManager.GameUI.FactsController.ShowFact();
         }
@@ -34,6 +31,11 @@ public class GetAtAbleComponent : MonoBehaviour
     public string GetComponentFormula()
     {
         return formula;
+    }
+
+    public void SpawnComponent()
+    {
+        GetComponentInParent<SpawnerController>().SpawnComponent();
     }
 
 }

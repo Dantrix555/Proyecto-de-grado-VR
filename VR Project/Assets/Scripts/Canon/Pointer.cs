@@ -64,7 +64,7 @@ public class Pointer : MonoBehaviour
         Color endLineColor = Color.white;
 
         //Check hit and set the line until the position of the object
-        if (hit.collider != null && !InGameManager.IsGamePaused)
+        if (hit.collider != null && InGameManager.CanUseGameControls && !InGameManager.IsGamePaused)
         {
             endPosition = hit.point;
             switch (hit.collider.tag)
@@ -81,25 +81,18 @@ public class Pointer : MonoBehaviour
                     endLineColor = Color.red;
                     _currentText = "Dispara!";
                     break;
-                case "Button":
-                    if (hit.collider.gameObject.GetComponent<ButtonController>().IsInteractable)
-                    {
-                        endLineColor = Color.cyan;
-                        _currentText = hit.collider.gameObject.GetComponent<ButtonController>().GetOptionName();
-                    }
-                    break;
                 default:
                     endLineColor = Color.white;
                     _currentText = _currentComponent;
                     break;
             }
         }
-        else if (hit.collider != null && InGameManager.IsGamePaused)
+        else if (hit.collider != null && (!InGameManager.CanUseGameControls || InGameManager.IsGamePaused))
         {
             endPosition = hit.point;
             switch (hit.collider.tag)
             {
-                case "Button":                    
+                case "Button":
                     if (hit.collider.gameObject.GetComponent<ButtonController>().IsInteractable)
                     {
                         endLineColor = Color.cyan;
