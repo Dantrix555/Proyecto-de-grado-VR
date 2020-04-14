@@ -26,6 +26,10 @@ public class Pointer : MonoBehaviour
     [SerializeField] private CanonReaderCanvas _reader = default;
     public CanonReaderCanvas Reader { get => _reader; }
 
+    [Space(5)]
+    [SerializeField] private GameObject _arrow;
+    public GameObject Arrow { get => _arrow; }
+
     //Text reader variables
     private string _currentText = default;
     private string _currentComponent = default;
@@ -63,13 +67,23 @@ public class Pointer : MonoBehaviour
 
         Color endLineColor = Color.white;
 
+
         //Check hit and set the line until the position of the object
         if (hit.collider != null && InGameManager.CanUseGameControls && !InGameManager.IsGamePaused)
         {
+            if (hit.collider.tag == "Floor")
+                _arrow.SetActive(true);
+            else
+            {
+                _arrow.SetActive(false);
+                _arrow.transform.localRotation = Quaternion.identity;
+            }
+
             endPosition = hit.point;
             switch (hit.collider.tag)
             {
                 case "Floor":
+                    _arrow.transform.position = endPosition;
                     endLineColor = Color.blue;
                     _currentText = "Teletransportar";
                     break;

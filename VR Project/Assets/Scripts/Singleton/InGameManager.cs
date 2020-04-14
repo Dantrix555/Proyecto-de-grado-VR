@@ -28,6 +28,7 @@ public class InGameManager : CHEMSingleton<InGameManager>
 
     [Header("Parent Objects")]
     [SerializeField] private UIController _gameUi;
+    [SerializeField] private GameObject[] _scenarioParentObjects;
 
     public static CanvasManager MainCanvas { get => Instance._mainCanvas; }
     public static SpawnerController[] SpawnerControllers { get => Instance._spawnerControllers; }
@@ -94,17 +95,19 @@ public class InGameManager : CHEMSingleton<InGameManager>
         SceneManager.LoadScene(levelToLoad.ToString());
     }
 
-    public static IEnumerator TeleportPlayer(Vector3 teleportPosition, GameObject player)
+    public static IEnumerator TeleportPlayer(Vector3 teleportPosition, Vector3 playerNewRotation, GameObject player)
     {
         CanUseGameControls = false;
         yield return new WaitForSeconds(0.5f);
         player.transform.position = teleportPosition;
+        player.transform.eulerAngles = playerNewRotation;
         yield return new WaitForSeconds(0.5f);
         CanUseGameControls = true;
     }
 
     public static void SetPause()
     {
+        SetScenarioActive(false);
         MainCanvas.FadePanelWindow.SetPauseFade(true);
         GameUI.PauseController.SetPauseFade("In");
         IsGamePaused = true;
@@ -117,12 +120,14 @@ public class InGameManager : CHEMSingleton<InGameManager>
             GameUI.PauseController.SetPauseFade("Out");
         else
             GameUI.ControlPanel.FadeOutControlPanel();
+        SetScenarioActive(true);
         IsGamePaused = false;
     }
 
     public static void ActivateDescription(bool activationState)
     {
         GameUI.FactsController.AnimateFactText(activationState);
+        SetScenarioActive(!activationState);
         MainCanvas.FadePanelWindow.SetPauseFade(activationState);
         CanUseGameControls = !activationState;
     }
@@ -137,4 +142,12 @@ public class InGameManager : CHEMSingleton<InGameManager>
         return false;
     }
 
+    public static void SetScenarioActive(bool activationState)
+    {
+        int i;
+        for(i = 0; i < Instance._scenarioParentObjects.Length; i++)
+        {
+            Instance._scenarioParentObjects[i].SetActive(activationState);
+        }
+    }
 }

@@ -9,8 +9,6 @@ public class CanonController : MonoBehaviour
     [SerializeField] private Pointer _pointer = default;
     [Space(5)]
     [SerializeField] private Animator _canonAnimator = default;
-    [Space(5)]
-    [SerializeField] private GameObject _arrow = default;
     
     //Public reference to the canon pointer
     public Pointer Pointer { get => _pointer; }
@@ -25,12 +23,20 @@ public class CanonController : MonoBehaviour
     {
         PlayerEvents.OnTriggerDown += OnOculusTriggerDown;
         PlayerEvents.OnBackButtonDown += OnButtonPause;
+        PlayerEvents.OnTouchpadTouch += RotateArrow;
     }
 
     private void OnDestroy()
     {
         PlayerEvents.OnTriggerDown -= OnOculusTriggerDown;
         PlayerEvents.OnBackButtonDown -= OnButtonPause;
+        PlayerEvents.OnTouchpadTouch -= RotateArrow;
+    }
+
+    private void RotateArrow(Vector2 fingerPosition)
+    {
+        //Taken from https://answers.unity.com/questions/361658/precise-rotation-based-on-joystick-axis-input-for.html
+        _pointer.Arrow.transform.eulerAngles = new Vector3(0, Mathf.Atan2(fingerPosition.x, fingerPosition.y) * 180 / Mathf.PI, 0);
     }
 
     private void OnOculusTriggerDown()
@@ -43,7 +49,7 @@ public class CanonController : MonoBehaviour
                 {
                     case "Floor":
                         InGameManager.MainCanvas.FadePanelWindow.SetFadeAnimation();
-                        StartCoroutine(InGameManager.TeleportPlayer(new Vector3(_pointer.hitPoint.x, transform.position.y, _pointer.hitPoint.z), gameObject));
+                        StartCoroutine(InGameManager.TeleportPlayer(new Vector3(_pointer.hitPoint.x, transform.position.y, _pointer.hitPoint.z), _pointer.Arrow.transform.localEulerAngles, gameObject));
                         break;
                     case "Component":
                         GameObject componentObject = _pointer.currentObject;

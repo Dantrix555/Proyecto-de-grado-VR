@@ -17,7 +17,7 @@ public class PlayerEvents : MonoBehaviour
     //Event to detect when is holding the oculus go trigger button
     public static UnityAction OnTriggerDown = null;
     //Event to detect when is the player touching the touchpad
-    public static UnityAction OnTouchpadTouch = null;
+    public static UnityAction<Vector2> OnTouchpadTouch = null;
     //Event to get the actual controller
     public static UnityAction<OVRInput.Controller, GameObject> OnControllerSource = null;
     #endregion
@@ -117,7 +117,7 @@ public class PlayerEvents : MonoBehaviour
         {
             if(OnTouchpadTouch != null)
             {
-                OnTouchpadTouch();
+                OnTouchpadTouch(OVRInput.Get(OVRInput.Axis2D.PrimaryTouchpad));
             }
         }
     }
