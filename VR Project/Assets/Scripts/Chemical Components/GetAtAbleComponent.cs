@@ -8,34 +8,15 @@ public class GetAtAbleComponent : MonoBehaviour
     private string formula = default;
     private string description = default;
     private GameObject shotComponentPrefab = default;
-    
-    public void SetComponentValues(int id, string formula, string description, GameObject shotComponentPrefab)
-    {
-        this.id = id;
-        this.formula = formula;
-        this.description = description;
-        this.shotComponentPrefab = shotComponentPrefab;
-    }
 
-    public GameObject GetShotPrefab()
-    {
-        if(!InGameManager.ComponentIsInDex(id))
-        {
-            InGameManager.ActivateDescription(true);
-            InGameManager.GameUI.FactsController.SetText(description);
-            InGameManager.GameUI.FactsController.ShowFact();
-        }
-        return shotComponentPrefab;
-    }
+    public int Id { get => id; set => id = value; }
+    public string Formula { get => formula; set => formula = value; }
+    public string Description { get => description; set => description = value; }
+    public GameObject ShotComponentPrefab { get => shotComponentPrefab; set => shotComponentPrefab = value; }
 
-    public string GetComponentFormula()
+    public void RespawnComponent()
     {
-        return formula;
-    }
-
-    public void SpawnComponent()
-    {
-        GetComponentInParent<SpawnerController>().SpawnComponent();
+        GetComponentInParent<SpawnerController>().Invoke("SpawnComponent", 10);
     }
 
 }

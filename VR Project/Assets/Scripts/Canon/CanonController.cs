@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class CanonController : MonoBehaviour
 {
@@ -41,7 +40,7 @@ public class CanonController : MonoBehaviour
 
     private void OnOculusTriggerDown()
     {
-        if(InGameManager.CanUseGameControls && !InGameManager.IsGamePaused)
+        if(InGameManager.CanUseGameControls && !InGameManager.IsGamePaused && !InGameManager.IsInDescription)
         {
             if (_pointer.currentObject != null)
             {
@@ -49,7 +48,7 @@ public class CanonController : MonoBehaviour
                 {
                     case "Floor":
                         InGameManager.MainCanvas.FadePanelWindow.SetFadeAnimation();
-                        StartCoroutine(InGameManager.TeleportPlayer(new Vector3(_pointer.hitPoint.x, transform.position.y, _pointer.hitPoint.z), _pointer.Arrow.transform.localEulerAngles, gameObject));
+                        StartCoroutine(InGameManager.TeleportPlayer(new Vector3(_pointer.hitPoint.x, transform.position.y, _pointer.hitPoint.z), _pointer.Arrow.transform.eulerAngles, gameObject));
                         break;
                     case "Component":
                         GameObject componentObject = _pointer.currentObject;
@@ -63,7 +62,7 @@ public class CanonController : MonoBehaviour
             else
                 Shot();
         }
-        else if(!InGameManager.CanUseGameControls || InGameManager.IsGamePaused)
+        else if(!InGameManager.CanUseGameControls || InGameManager.IsGamePaused || InGameManager.IsInDescription)
         {
             if (_pointer.currentObject != null)
             {
@@ -82,7 +81,7 @@ public class CanonController : MonoBehaviour
 
     private void OnButtonPause()
     {
-        if(InGameManager.CanUseGameControls)
+        if(InGameManager.CanUseGameControls && !InGameManager.IsInDescription)
         {
             if(InGameManager.IsGamePaused)
             {
@@ -100,7 +99,7 @@ public class CanonController : MonoBehaviour
         if(_canShot && _shotComponentPrefab != null)
         {
             _canonAnimator.SetTrigger("Shot");
-            Invoke("CanShot", 0.35f);
+            Invoke("CanShot", 0.25f);
             _canShot = false;
             GameObject _shotComponentInstance = Instantiate(_shotComponentPrefab, _pointer.shotPoint.transform.position, Quaternion.identity, transform);
             //Set to the pointer position because this script is attached to OVRCameraRig GameObject the absolute father of the other objects 
@@ -114,17 +113,25 @@ public class CanonController : MonoBehaviour
     {
         _canShot = true;
     }
-
-    private void OnTriggerEnter(Collider other)
+    
+    private void OnTriggerStay(Collider other)
     {
-        if (other.gameObject.tag == "Component")
+        if (other.gameObject.tag == "Component" && InGameManager.CanUseGameControls)
         {
-            other.gameObject.transform.parent.GetComponent<GetAtAbleComponent>().Invoke("SpawnComponent", 15);
-            _shotComponentPrefab = other.gameObject.transform.parent.GetComponent<GetAtAbleComponent>().GetShotPrefab();
-            _componentFormula = other.gameObject.transform.parent.GetComponent<GetAtAbleComponent>().GetComponentFormula();
+            GetAtAbleComponent gotComponent = other.gameObject.transform.parent.GetComponent<GetAtAbleComponent>();
+            gotComponent.RespawnComponent();
+            _shotComponentPrefab = gotComponent.ShotComponentPrefab;
+            _componentFormula = gotComponent.Formula;
             _pointer.SetComponentText(_componentFormula);
             _canShot = true;
-            Destroy(other.gameObject);
+            if (!InGameManager.ComponentIsInDex(gotComponent.Id))
+            {
+                InGameManager.ActivateDescription(true);
+                InGameManager.GameUI.FactsController.SetText(gotComponent.Description);
+                InGameManager.GameUI.FactsController.ShowFact();
+            }
+            Destroy(gotComponent.gameObject);
+
         }
     }
 }

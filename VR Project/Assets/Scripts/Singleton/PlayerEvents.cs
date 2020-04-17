@@ -120,6 +120,7 @@ public class PlayerEvents : MonoBehaviour
                 OnTouchpadTouch(OVRInput.Get(OVRInput.Axis2D.PrimaryTouchpad));
             }
         }
+
     }
 
     void PlayerFound()

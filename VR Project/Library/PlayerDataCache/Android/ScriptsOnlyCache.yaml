@@ -33,8 +33,10 @@ ScriptsOnlyBuild:
     UnityEditor.Graphs.dll:
     - UnityEditor.Graphs.AnimationBlendTree.Graph
     - UnityEditor.Graphs.AnimationBlendTree.GraphGUI
+    - UnityEditor.Graphs.AnimationStateMachine.AnyStateNode
     - UnityEditor.Graphs.AnimationStateMachine.Graph
     - UnityEditor.Graphs.AnimationStateMachine.GraphGUI
+    - UnityEditor.Graphs.AnimationStateMachine.StateNode
     - UnityEditor.Graphs.AnimatorControllerTool
     UnityEditor.TestRunner.dll:
     - UnityEditor.TestTools.TestRunner.Api.CallbacksHolder
@@ -1494,7 +1496,7 @@ ScriptsOnlyBuild:
     className: OvrAvatarSettingsEditor
   - hash:
       serializedVersion: 2
-      Hash: 3cd1e617c06b6ceedbe147ab56a88083
+      Hash: 59a5eddd7cd51ec8cf2c8f1335440eea
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: InGameManager

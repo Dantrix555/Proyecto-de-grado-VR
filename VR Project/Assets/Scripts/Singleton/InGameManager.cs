@@ -41,9 +41,14 @@ public class InGameManager : CHEMSingleton<InGameManager>
 
     [SerializeField] private bool _canUseGameControls;
     private bool _isGamePaused = false;
+    private bool _isInDescription = false;
+
+    public GameObject _arrow;
+    public GameObject _player;
 
     public static bool CanUseGameControls { get => Instance._canUseGameControls; set => Instance._canUseGameControls = value; }
     public static bool IsGamePaused { get => Instance._isGamePaused; set => Instance._isGamePaused = value; }
+    public static bool IsInDescription { get => Instance._isInDescription; set => Instance._isInDescription = value; }
 
     private HashSet<int> _componentDex = new HashSet<int>();
 
@@ -57,6 +62,11 @@ public class InGameManager : CHEMSingleton<InGameManager>
             }
         }
         //Set the components as a child of their respective spawner
+    }
+
+    private void Update()
+    {
+        DebugText.text = "A: " + _arrow.transform.eulerAngles.y.ToString() + " - P: " + _player.transform.eulerAngles.y.ToString();
     }
 
     //Operation is a variable that takes 2 values in or out, to determine the fade effect
@@ -126,10 +136,10 @@ public class InGameManager : CHEMSingleton<InGameManager>
 
     public static void ActivateDescription(bool activationState)
     {
+        IsInDescription = activationState;
         GameUI.FactsController.AnimateFactText(activationState);
         SetScenarioActive(!activationState);
         MainCanvas.FadePanelWindow.SetPauseFade(activationState);
-        CanUseGameControls = !activationState;
     }
 
     public static bool ComponentIsInDex(int componentId)

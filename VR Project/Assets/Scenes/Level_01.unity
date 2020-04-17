@@ -1796,7 +1796,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 761122578}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0.424}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 3654724771995718169}
@@ -9158,6 +9158,8 @@ MonoBehaviour:
   - {fileID: 786822947}
   debugText: {fileID: 1004358945}
   _canUseGameControls: 1
+  _arrow: {fileID: 761122578}
+  _player: {fileID: 909262006733637928}
 --- !u!114 &9131557128464709182
 MonoBehaviour:
   m_ObjectHideFlags: 0

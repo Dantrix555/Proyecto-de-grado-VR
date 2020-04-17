@@ -12,7 +12,11 @@ public class SpawnerController : MonoBehaviour
         if (transform.childCount > 0) { return; }
         Vector3 spawnPosition = new Vector3(transform.position.x, transform.position.y + 2, transform.position.z);
         GameObject chemicalComponent = Instantiate(_spawnerComponent.componentObject, spawnPosition, _spawnerComponent.componentObject.transform.rotation, transform);
-        chemicalComponent.GetComponent<GetAtAbleComponent>().SetComponentValues(_spawnerComponent.id, _spawnerComponent.formula, _spawnerComponent.description, _spawnerComponent.shotObject);
+        GetAtAbleComponent getAtAbleComponent = chemicalComponent.GetComponent<GetAtAbleComponent>();
+        getAtAbleComponent.Id = _spawnerComponent.id;
+        getAtAbleComponent.Formula = _spawnerComponent.formula;
+        getAtAbleComponent.Description = _spawnerComponent.description;
+        getAtAbleComponent.ShotComponentPrefab = _spawnerComponent.shotObject;
     }
 
 }

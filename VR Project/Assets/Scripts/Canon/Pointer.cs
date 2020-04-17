@@ -34,7 +34,8 @@ public class Pointer : MonoBehaviour
     private string _currentText = default;
     private string _currentComponent = default;
 
-    private Transform currentOrigin = null;
+    private Transform _currentOrigin = null;
+    private bool _arrowHasBeenSet = false;
 
     void Awake()
     {
@@ -63,20 +64,25 @@ public class Pointer : MonoBehaviour
         RaycastHit hit = CreateRaycast(everythingMask);
 
         //Default end
-        Vector3 endPosition = currentOrigin.position + (currentOrigin.forward * lineDistance);
+        Vector3 endPosition = _currentOrigin.position + (_currentOrigin.forward * lineDistance);
 
         Color endLineColor = Color.white;
 
+        if(hit.collider == null)
+        {
+            SetArrowInScene(false);
+        }
 
         //Check hit and set the line until the position of the object
-        if (hit.collider != null && InGameManager.CanUseGameControls && !InGameManager.IsGamePaused)
+        if (hit.collider != null && InGameManager.CanUseGameControls && !InGameManager.IsGamePaused && !InGameManager.IsInDescription)
         {
-            if (hit.collider.tag == "Floor")
-                _arrow.SetActive(true);
+            if(hit.collider.tag == "Floor")
+            {
+                SetArrowInScene(true);
+            }
             else
             {
-                _arrow.SetActive(false);
-                _arrow.transform.localRotation = Quaternion.identity;
+                SetArrowInScene(false);
             }
 
             endPosition = hit.point;
@@ -101,7 +107,7 @@ public class Pointer : MonoBehaviour
                     break;
             }
         }
-        else if (hit.collider != null && (!InGameManager.CanUseGameControls || InGameManager.IsGamePaused))
+        else if (hit.collider != null && (!InGameManager.CanUseGameControls || InGameManager.IsGamePaused || InGameManager.IsInDescription))
         {
             endPosition = hit.point;
             switch (hit.collider.tag)
@@ -121,10 +127,9 @@ public class Pointer : MonoBehaviour
         }
         //Set Color according to the hit object collider if it has
         SetLineColor(endLineColor);
-        _reader.SetReaderText(_currentText);
 
         //Set Position
-        lineRenderer.SetPosition(0, currentOrigin.position);
+        lineRenderer.SetPosition(0, _currentOrigin.position);
         lineRenderer.SetPosition(1, endPosition);
         return endPosition;
     }
@@ -132,7 +137,7 @@ public class Pointer : MonoBehaviour
     private void UpdateOrigin(OVRInput.Controller controller, GameObject controllerObject)
     {
         //Set origin of pointer acording to the control position
-        currentOrigin = shotPoint;
+        _currentOrigin = shotPoint;
 
         //Is the laser visible?
         if (controller == OVRInput.Controller.Touchpad)
@@ -163,9 +168,23 @@ public class Pointer : MonoBehaviour
     private RaycastHit CreateRaycast(int layer)
     {
         RaycastHit hit;
-        Ray ray = new Ray(currentOrigin.position, currentOrigin.forward);
+        Ray ray = new Ray(_currentOrigin.position, _currentOrigin.forward);
         Physics.Raycast(ray, out hit, lineDistance, layer);
         return hit;
+    }
+
+    private void SetArrowInScene(bool newArrowActiveState)
+    {
+        _arrow.SetActive(newArrowActiveState);
+        if(!_arrowHasBeenSet && newArrowActiveState)
+        {
+            _arrowHasBeenSet = true;
+            _arrow.transform.eulerAngles = transform.eulerAngles;
+        }
+        else if(_arrowHasBeenSet && !newArrowActiveState)
+        {
+            _arrowHasBeenSet = false;
+        }
     }
 
     public void SetLineColor(Color lineColor)
