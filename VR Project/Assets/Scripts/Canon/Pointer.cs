@@ -37,6 +37,10 @@ public class Pointer : MonoBehaviour
     private Transform _currentOrigin = null;
     private bool _arrowHasBeenSet = false;
 
+    //Start y transform rotation of the arrow
+    private float _arrowYRotation = default;
+    public float ArrowYRotation { get => _arrowYRotation; }
+
     void Awake()
     {
         PlayerEvents.OnControllerSource += UpdateOrigin;
@@ -178,8 +182,9 @@ public class Pointer : MonoBehaviour
         _arrow.SetActive(newArrowActiveState);
         if(!_arrowHasBeenSet && newArrowActiveState)
         {
+            _arrowYRotation = transform.eulerAngles.y;
             _arrowHasBeenSet = true;
-            _arrow.transform.eulerAngles = transform.eulerAngles;
+            _arrow.transform.eulerAngles = new Vector3(_arrow.transform.eulerAngles.x, transform.eulerAngles.y, _arrow.transform.eulerAngles.z);
         }
         else if(_arrowHasBeenSet && !newArrowActiveState)
         {

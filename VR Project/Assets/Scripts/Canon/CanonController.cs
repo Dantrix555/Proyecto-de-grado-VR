@@ -34,8 +34,15 @@ public class CanonController : MonoBehaviour
 
     private void RotateArrow(Vector2 fingerPosition)
     {
-        //Taken from https://answers.unity.com/questions/361658/precise-rotation-based-on-joystick-axis-input-for.html
-        _pointer.Arrow.transform.eulerAngles = new Vector3(0, Mathf.Atan2(fingerPosition.x, fingerPosition.y) * 180 / Mathf.PI, 0);
+        if(InGameManager.CanUseGameControls && !InGameManager.IsGamePaused && !InGameManager.IsInDescription)
+        {
+            //Taken from https://answers.unity.com/questions/361658/precise-rotation-based-on-joystick-axis-input-for.html
+
+            //The move made in the touchpad is added to the actual Y rotation of the arrow to move according the arrow position
+            //and not according to the Vector3.zero position
+            _pointer.Arrow.transform.eulerAngles = new Vector3(0, (Mathf.Atan2(fingerPosition.x, fingerPosition.y) * 180 / Mathf.PI) 
+                + _pointer.ArrowYRotation, 0);
+        }
     }
 
     private void OnOculusTriggerDown()
