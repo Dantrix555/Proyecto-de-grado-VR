@@ -42,6 +42,7 @@ public class InGameManager : CHEMSingleton<InGameManager>
     [SerializeField] private bool _canUseGameControls;
     private bool _isGamePaused = false;
     private bool _isInDescription = false;
+    private bool _playerHasKey = false;
 
     public GameObject _arrow;
     public GameObject _player;
@@ -49,6 +50,7 @@ public class InGameManager : CHEMSingleton<InGameManager>
     public static bool CanUseGameControls { get => Instance._canUseGameControls; set => Instance._canUseGameControls = value; }
     public static bool IsGamePaused { get => Instance._isGamePaused; set => Instance._isGamePaused = value; }
     public static bool IsInDescription { get => Instance._isInDescription; set => Instance._isInDescription = value; }
+    public static bool PlayerHasKey { get => Instance._playerHasKey; set => Instance._playerHasKey = value; }
 
     private HashSet<int> _componentDex = new HashSet<int>();
 

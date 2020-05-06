@@ -10,6 +10,9 @@ TagManager:
   - Canon
   - Shot
   - Button
+  - Key
+  - Door
+  - Wall
   layers:
   - Default
   - TransparentFX

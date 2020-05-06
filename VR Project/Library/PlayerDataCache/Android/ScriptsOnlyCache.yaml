@@ -7,6 +7,7 @@ ScriptsOnlyBuild:
     - CanvasManager
     - ChemicalComponent
     - ControlPanel
+    - DestructableObject
     - EnemyController
     - FactsController
     - FadePanel
@@ -152,6 +153,8 @@ ScriptsOnlyBuild:
       Script: {instanceID: 14042}
     - Class: 114
       Script: {instanceID: 14150}
+    - Class: 114
+      Script: {instanceID: 67440}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 120
@@ -1058,7 +1061,7 @@ ScriptsOnlyBuild:
     className: P2PNetworkBall
   - hash:
       serializedVersion: 2
-      Hash: 68781ca3207997db2096db6b6677a0bd
+      Hash: fdabfd69d6c4cb185e6a1059af44459a
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: EnemyController
@@ -1932,6 +1935,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
     className: PlayableTrack
+  - hash:
+      serializedVersion: 2
+      Hash: d75aafc61c63e269ab4b9b097a14e9a2
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: DestructableObject
   platform: 13
   scenePathNames:
   - Assets/Scenes/MainMenu.unity

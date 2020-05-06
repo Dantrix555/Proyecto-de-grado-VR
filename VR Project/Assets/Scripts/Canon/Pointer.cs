@@ -105,6 +105,34 @@ public class Pointer : MonoBehaviour
                     endLineColor = Color.red;
                     _currentText = "Dispara!";
                     break;
+                case "Wall":
+                    if(hit.collider.gameObject.GetComponent<DestructableObject>().WeaknessComponent.ToString() == _currentComponent)
+                    {
+                        endLineColor = Color.green;
+                        _currentText = "Derribar";
+                    }
+                    else
+                    {
+                        endLineColor = Color.gray;
+                        _currentText = "Busca " + hit.collider.gameObject.GetComponent<DestructableObject>().WeaknessComponent.ToString();
+                    }
+                    break;
+                case "Key":
+                    endLineColor = Color.yellow;
+                    _currentText = "Llave";
+                    break;
+                case "Door":
+                    if(InGameManager.PlayerHasKey)
+                    {
+                        endLineColor = Color.green;
+                        _currentText = "Busca la llave";
+                    }
+                    else
+                    {
+                        endLineColor = Color.gray;
+                        _currentText = "Abrir";
+                    }
+                    break;
                 default:
                     endLineColor = Color.white;
                     _currentText = _currentComponent;

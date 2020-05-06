@@ -47,20 +47,35 @@ public class CanonController : MonoBehaviour
 
     private void OnOculusTriggerDown()
     {
+        //Verify if the game is not paused, in description and if player can use the controls
         if(InGameManager.CanUseGameControls && !InGameManager.IsGamePaused && !InGameManager.IsInDescription)
         {
             if (_pointer.currentObject != null)
             {
                 switch (_pointer.currentObject.tag)
                 {
+                    //Set fade in animation and teleport player
                     case "Floor":
                         InGameManager.MainCanvas.FadePanelWindow.SetFadeAnimation();
                         StartCoroutine(InGameManager.TeleportPlayer(new Vector3(_pointer.hitPoint.x, transform.position.y, _pointer.hitPoint.z), _pointer.Arrow.transform.eulerAngles, gameObject));
                         break;
+                    //Atract the component to the player position
                     case "Component":
                         GameObject componentObject = _pointer.currentObject;
                         componentObject.transform.parent.GetComponent<Rigidbody>().velocity = (transform.position - componentObject.transform.position) * _absorbSpeed;
                         break;
+                    //Atract the key to the player position
+                    case "Key":
+                        _pointer.currentObject.transform.parent.GetComponent<Rigidbody>().velocity = (transform.position - _pointer.currentObject.transform.position) * _absorbSpeed;
+                        break;
+                    case "Door":
+                        //If player has the key open (destroy) the door
+                        if(InGameManager.PlayerHasKey)
+                        {
+                            _pointer.currentObject.GetComponent<DestructableObject>().SetDestroyAnimation();
+                        }
+                        break;
+                    //if the tag of the object is another and player can shot, Shoot a component
                     default:
                         Shot();
                         break;
@@ -139,6 +154,12 @@ public class CanonController : MonoBehaviour
             }
             Destroy(gotComponent.gameObject);
 
+        }
+
+        if(other.gameObject.tag == "Key" && InGameManager.CanUseGameControls)
+        {
+            InGameManager.PlayerHasKey = true;
+            Destroy(other.gameObject);
         }
     }
 }
