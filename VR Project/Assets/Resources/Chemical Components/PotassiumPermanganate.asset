@@ -20,5 +20,5 @@ MonoBehaviour:
     con insectos alrededor"
   componentObject: {fileID: 5644299953053622717, guid: 43ec0e17faed3bc4eb68362fc76bb25e,
     type: 3}
-  shotObject: {fileID: 6328714486357033285, guid: 678b8461c4fedea4d8fda0fa10aad253,
+  shotObject: {fileID: 6348231297321005749, guid: bdedb1418e4cf7149b3b6e951b5c1107,
     type: 3}

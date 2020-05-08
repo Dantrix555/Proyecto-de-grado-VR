@@ -126,7 +126,7 @@ public class CanonController : MonoBehaviour
             GameObject _shotComponentInstance = Instantiate(_shotComponentPrefab, _pointer.shotPoint.transform.position, Quaternion.identity, transform);
             //Set to the pointer position because this script is attached to OVRCameraRig GameObject the absolute father of the other objects 
             //And the father has blocked its rotations
-            _shotComponentInstance.GetComponent<ShotableComponent>().SetVelocity(_pointer.transform.forward, 2 * _absorbSpeed);
+            _shotComponentInstance.GetComponent<ShotableComponent>().SetVelocity(_pointer.transform.forward, 20);
             _shotComponentInstance.GetComponent<ShotableComponent>().ComponentFormula = _componentFormula;
         }
     }
