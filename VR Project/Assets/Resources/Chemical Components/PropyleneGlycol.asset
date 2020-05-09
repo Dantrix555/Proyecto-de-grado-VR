@@ -19,5 +19,5 @@ MonoBehaviour:
     que se usa en productos anticongelantes, usalo si ves algo congelado a tu alrededor
   componentObject: {fileID: 6147217031332063590, guid: b29eb3c9cb6a82947934a2b4ceea9a3b,
     type: 3}
-  shotObject: {fileID: 6348231297321005749, guid: bdedb1418e4cf7149b3b6e951b5c1107,
+  shotObject: {fileID: 2668881715635491943, guid: f5c0027cbafa23f4282b581205f73eaa,
     type: 3}

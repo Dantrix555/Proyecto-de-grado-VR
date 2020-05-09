@@ -366,6 +366,7 @@
     <Compile Include="Assets\Scripts\UI\Images\ImageController.cs" />
     <Compile Include="Assets\Scripts\UI\Pause\ControlPanel.cs" />
     <Compile Include="Assets\Scripts\UI\Pause\FactsController.cs" />
+    <Compile Include="Assets\Scripts\UI\Pause\GameOverController.cs" />
     <Compile Include="Assets\Scripts\UI\Pause\PauseController.cs" />
     <Compile Include="Assets\Scripts\UI\Pause\UIController.cs" />
     <Compile Include="Assets\Scripts\UI\Titles\TitleController.cs" />

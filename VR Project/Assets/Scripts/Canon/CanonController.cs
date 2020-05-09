@@ -17,7 +17,9 @@ public class CanonController : MonoBehaviour
     private bool _canShot = false;
     private float _nextFire = 0.5f;
     private float _absorbSpeed = 2.5f;
+    private int _hp = 3;
 
+    //Start the events for the oculus controls
     private void Awake()
     {
         PlayerEvents.OnTriggerDown += OnOculusTriggerDown;
@@ -25,6 +27,7 @@ public class CanonController : MonoBehaviour
         PlayerEvents.OnTouchpadTouch += RotateArrow;
     }
 
+    //Destroy the events for the oculus controls
     private void OnDestroy()
     {
         PlayerEvents.OnTriggerDown -= OnOculusTriggerDown;
@@ -74,6 +77,10 @@ public class CanonController : MonoBehaviour
                         {
                             _pointer.currentObject.GetComponent<DestructableObject>().SetDestroyAnimation();
                         }
+                        break;
+                    case "Portal":
+                        InGameManager.MainCanvas.FadePanelWindow.SetFadeAnimation();
+                        StartCoroutine(InGameManager.TeleportPlayerToPortal(new Vector3(_pointer.currentObject.transform.position.x, transform.position.y, _pointer.currentObject.transform.position.z), gameObject));
                         break;
                     //if the tag of the object is another and player can shot, Shoot a component
                     default:
@@ -140,6 +147,7 @@ public class CanonController : MonoBehaviour
     {
         if (other.gameObject.tag == "Component" && InGameManager.CanUseGameControls)
         {
+            InGameManager.MainCanvas.FadePanelWindow.SetGotComponentAnimation();
             GetAtAbleComponent gotComponent = other.gameObject.transform.parent.GetComponent<GetAtAbleComponent>();
             gotComponent.RespawnComponent();
             _shotComponentPrefab = gotComponent.ShotComponentPrefab;
@@ -158,8 +166,30 @@ public class CanonController : MonoBehaviour
 
         if(other.gameObject.tag == "Key" && InGameManager.CanUseGameControls)
         {
+            InGameManager.MainCanvas.FadePanelWindow.SetGotKeyAnimation();
             InGameManager.PlayerHasKey = true;
             Destroy(other.gameObject);
         }
+
+        if(other.gameObject.tag == "Enemy" && !InGameManager.PlayerIsDamaged)
+        {
+            Debug.Log("Player Damaged");
+            InGameManager.PlayerIsDamaged = true;
+            _hp--;
+            if(_hp <= 0)
+            {
+                InGameManager.SetGameOver();
+            }
+            else
+            {
+                InGameManager.MainCanvas.FadePanelWindow.SetDamageFade();
+                Invoke("ActivateDamage", 1.5f);
+            }
+        }
+    }
+
+    private void ActivateDamage()
+    {
+        InGameManager.PlayerIsDamaged = false;
     }
 }

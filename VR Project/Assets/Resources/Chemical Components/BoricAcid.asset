@@ -19,5 +19,5 @@ MonoBehaviour:
     que significa si ves uno cerca."
   componentObject: {fileID: 4290612005291492377, guid: 272c37d0dfc07624aa23849f955f227f,
     type: 3}
-  shotObject: {fileID: 6348231297321005749, guid: bdedb1418e4cf7149b3b6e951b5c1107,
+  shotObject: {fileID: 1393133228802036669, guid: 833855e05a728ae409c0666ffa8a5cc3,
     type: 3}

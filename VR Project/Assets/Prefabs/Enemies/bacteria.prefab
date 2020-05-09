@@ -312,14 +312,14 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.4
-  m_Speed: 3.5
+  m_Speed: 2
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 180
-  m_StoppingDistance: 2
+  m_StoppingDistance: 1
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
-  m_AutoRepath: 0
+  m_AutoRepath: 1
   m_Height: 2.6
   m_BaseOffset: 0.9
   m_WalkableMask: 4294967295
@@ -461,6 +461,7 @@ GameObject:
   - component: {fileID: 6669758990037982052}
   - component: {fileID: 6669758990037982055}
   - component: {fileID: 6874611059222403119}
+  - component: {fileID: 2129476810}
   m_Layer: 10
   m_Name: Sphere
   m_TagString: Enemy
@@ -571,10 +572,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _weaknessComponent: 2
   _objectAnimator: {fileID: 6669758990037982055}
+  _destroyTimeInSeconds: 0.7
   _enemyAnimator: {fileID: 1858263917599978143}
-  _enemyLife: 3
-  _isDamagable: 1
+  _enemyLife: 5
   _enemyNavMesh: {fileID: 4823499280452447936}
+  _pathPointA: {fileID: 0}
+  _pathPointB: {fileID: 0}
   objectToChase: {fileID: 0}
   _objectMask:
     serializedVersion: 2
@@ -614,6 +617,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
+--- !u!65 &2129476810
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6669758990037982051}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.07558968, y: 0.17577827, z: 0.0697311}
+  m_Center: {x: -0.006239507, y: 0.027589109, z: -0.00023868869}
 --- !u!1 &6789293993232008482
 GameObject:
   m_ObjectHideFlags: 0

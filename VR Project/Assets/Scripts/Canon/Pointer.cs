@@ -117,6 +117,18 @@ public class Pointer : MonoBehaviour
                         _currentText = "Busca " + hit.collider.gameObject.GetComponent<DestructableObject>().WeaknessComponent.ToString();
                     }
                     break;
+                case "Water":
+                    if (hit.collider.gameObject.GetComponent<DestructableObject>().WeaknessComponent.ToString() == _currentComponent)
+                    {
+                        endLineColor = Color.green;
+                        _currentText = "Purificar";
+                    }
+                    else
+                    {
+                        endLineColor = Color.red;
+                        _currentText = "Busca " + hit.collider.gameObject.GetComponent<DestructableObject>().WeaknessComponent.ToString();
+                    }
+                    break;
                 case "Key":
                     endLineColor = Color.yellow;
                     _currentText = "Llave";
@@ -132,6 +144,10 @@ public class Pointer : MonoBehaviour
                         endLineColor = Color.gray;
                         _currentText = "Abrir";
                     }
+                    break;
+                case "Portal":
+                    endLineColor = Color.cyan;
+                    _currentText = "Meta";
                     break;
                 default:
                     endLineColor = Color.white;
@@ -163,6 +179,7 @@ public class Pointer : MonoBehaviour
         //Set Position
         lineRenderer.SetPosition(0, _currentOrigin.position);
         lineRenderer.SetPosition(1, endPosition);
+        _reader.SetReaderText(_currentText);
         return endPosition;
     }
 

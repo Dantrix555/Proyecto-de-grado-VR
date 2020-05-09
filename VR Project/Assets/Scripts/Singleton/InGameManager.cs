@@ -34,23 +34,17 @@ public class InGameManager : CHEMSingleton<InGameManager>
     public static SpawnerController[] SpawnerControllers { get => Instance._spawnerControllers; }
     public static UIController GameUI { get => Instance._gameUi; }
 
-    public Text debugText;
-    public static Text DebugText { get => Instance.debugText; }
-    //public GameObject button;
-    //private int x;
-
     [SerializeField] private bool _canUseGameControls;
     private bool _isGamePaused = false;
     private bool _isInDescription = false;
     private bool _playerHasKey = false;
-
-    public GameObject _arrow;
-    public GameObject _player;
-
+    private bool _playerIsDamaged = false;
+    
     public static bool CanUseGameControls { get => Instance._canUseGameControls; set => Instance._canUseGameControls = value; }
     public static bool IsGamePaused { get => Instance._isGamePaused; set => Instance._isGamePaused = value; }
     public static bool IsInDescription { get => Instance._isInDescription; set => Instance._isInDescription = value; }
     public static bool PlayerHasKey { get => Instance._playerHasKey; set => Instance._playerHasKey = value; }
+    public static bool PlayerIsDamaged { get => Instance._playerIsDamaged; set => Instance._playerIsDamaged = value; }
 
     private HashSet<int> _componentDex = new HashSet<int>();
 
@@ -63,12 +57,6 @@ public class InGameManager : CHEMSingleton<InGameManager>
                 _spawnerControllers[i].SpawnComponent();
             }
         }
-        //Set the components as a child of their respective spawner
-    }
-
-    private void Update()
-    {
-        DebugText.text = "A: " + _arrow.transform.eulerAngles.y.ToString() + " - P: " + _player.transform.eulerAngles.y.ToString();
     }
 
     //Operation is a variable that takes 2 values in or out, to determine the fade effect
@@ -77,6 +65,7 @@ public class InGameManager : CHEMSingleton<InGameManager>
         float i;
         Color actualMaterialColor = objectToFade.GetComponent<MeshRenderer>().material.color;
         
+        //Set full opacity to the object (visible)
         if (operation == FadeOperation.In)
         {
             objectToFade.SetActive(true);
@@ -87,6 +76,7 @@ public class InGameManager : CHEMSingleton<InGameManager>
                 yield return new WaitForSeconds(0.05f);
             }
         }
+        //Set no opacity to the object (invisible)
         else if (operation == FadeOperation.Out)
         {
             for (i = 1; i > 0; i -= 0.05f)
@@ -105,6 +95,15 @@ public class InGameManager : CHEMSingleton<InGameManager>
         MainCanvas.FadePanelWindow.SetFadeAnimation();
         yield return new WaitForSeconds(0.3f);
         SceneManager.LoadScene(levelToLoad.ToString());
+    }
+
+    public static IEnumerator TeleportPlayerToPortal(Vector3 teleportPosition, GameObject player)
+    {
+        CanUseGameControls = false;
+        yield return new WaitForSeconds(0.5f);
+        player.transform.position = teleportPosition;
+        yield return new WaitForSeconds(0.25f);
+        SetFinishedGame();
     }
 
     public static IEnumerator TeleportPlayer(Vector3 teleportPosition, Vector3 playerNewRotation, GameObject player)
@@ -138,10 +137,28 @@ public class InGameManager : CHEMSingleton<InGameManager>
 
     public static void ActivateDescription(bool activationState)
     {
+        //Set that player is in desription and scenario disapear during description
         IsInDescription = activationState;
         GameUI.FactsController.AnimateFactText(activationState);
         SetScenarioActive(!activationState);
         MainCanvas.FadePanelWindow.SetPauseFade(activationState);
+    }
+
+    public static void SetGameOver()
+    {
+        IsGamePaused = true;
+        CanUseGameControls = false;
+        SetScenarioActive(false);
+        GameUI.GameOverController.SetGameOver();
+        MainCanvas.FadePanelWindow.SetGameOverFade();
+    }
+
+    public static void SetFinishedGame()
+    {
+        IsGamePaused = true;
+        SetScenarioActive(false);
+        GameUI.FinishedGameController.SetGameOver();
+        MainCanvas.FadePanelWindow.SetFinishedGameFade();
     }
 
     public static bool ComponentIsInDex(int componentId)

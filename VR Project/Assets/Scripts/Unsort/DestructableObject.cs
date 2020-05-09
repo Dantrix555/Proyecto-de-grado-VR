@@ -20,10 +20,13 @@ public class DestructableObject : MonoBehaviour
     //Animator to set damage and destroy objects
     [SerializeField] private Animator _objectAnimator = default;
 
+    //Time according animator to destroy the object
+    [SerializeField] private float _destroyTimeInSeconds;
+
     public void SetDestroyAnimation()
     {
         _objectAnimator.SetTrigger("Destroy");
-        Invoke("DestroyObject", 0.5f);
+        Invoke("DestroyObject", _destroyTimeInSeconds);
     }
 
     //Damage animation is only necesary on enemies, call this method in enemy controller script

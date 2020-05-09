@@ -15,4 +15,29 @@ public class FadePanel : MonoBehaviour
     {
         _fadePanelAnimator.SetBool("FadePause", fadeState);
     }
+
+    public void SetFinishedGameFade()
+    {
+        _fadePanelAnimator.SetTrigger("Finished");
+    }
+
+    public void SetGameOverFade()
+    {
+        _fadePanelAnimator.SetTrigger("GameOver");
+    }
+
+    public void SetDamageFade()
+    {
+        _fadePanelAnimator.SetTrigger("Damaged");
+    }
+
+    public void SetGotKeyAnimation()
+    {
+        _fadePanelAnimator.SetTrigger("Key");
+    }
+
+    public void SetGotComponentAnimation()
+    {
+        _fadePanelAnimator.SetTrigger("Component");
+    }
 }

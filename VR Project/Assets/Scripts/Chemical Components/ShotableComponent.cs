@@ -18,12 +18,12 @@ public class ShotableComponent : MonoBehaviour
     //Temporally everything destroys the shot
     private void OnTriggerEnter(Collider other)
     {
-        if(other.gameObject.tag == "Wall" && _componentFormula == other.gameObject.GetComponent<DestructableObject>().WeaknessComponent.ToString())
+        if((other.gameObject.tag == "Wall" || other.gameObject.tag == "Water") && _componentFormula == other.gameObject.GetComponent<DestructableObject>().WeaknessComponent.ToString())
         {
             other.gameObject.GetComponent<DestructableObject>().SetDestroyAnimation();
             Destroy(gameObject);
         }
-        if(other.gameObject.tag != "Enemy")
+        if(other.gameObject.tag != "Enemy" && other.gameObject.tag != "Player")
         {
             Destroy(gameObject);
         }
