@@ -66,16 +66,23 @@ public class CanonController : MonoBehaviour
                     case "Component":
                         GameObject componentObject = _pointer.currentObject;
                         componentObject.transform.parent.GetComponent<Rigidbody>().velocity = (transform.position - componentObject.transform.position) * _absorbSpeed;
+                        SoundManager.LoadSoundEffect(SoundManager.SFX.ObjectAbsorption);
                         break;
                     //Atract the key to the player position
                     case "Key":
                         _pointer.currentObject.transform.parent.GetComponent<Rigidbody>().velocity = (transform.position - _pointer.currentObject.transform.position) * _absorbSpeed;
+                        SoundManager.LoadSoundEffect(SoundManager.SFX.ObjectAbsorption);
                         break;
                     case "Door":
                         //If player has the key open (destroy) the door
                         if(InGameManager.PlayerHasKey)
                         {
                             _pointer.currentObject.GetComponent<DestructableObject>().SetDestroyAnimation();
+                            SoundManager.LoadSoundEffect(SoundManager.SFX.CanOpenDoor);
+                        }
+                        else
+                        {
+                            SoundManager.LoadSoundEffect(SoundManager.SFX.CantOpenDoor);
                         }
                         break;
                     case "Portal":
@@ -127,6 +134,7 @@ public class CanonController : MonoBehaviour
     {
         if(_canShot && _shotComponentPrefab != null)
         {
+            SoundManager.LoadSoundEffect(SoundManager.SFX.Shoot);
             _canonAnimator.SetTrigger("Shot");
             Invoke("CanShot", 0.25f);
             _canShot = false;
@@ -154,10 +162,11 @@ public class CanonController : MonoBehaviour
             _componentFormula = gotComponent.Formula;
             _pointer.SetComponentText(_componentFormula);
             _canShot = true;
+            SoundManager.LoadSoundEffect(SoundManager.SFX.GotComponent);
             if (!InGameManager.ComponentIsInDex(gotComponent.Id))
             {
                 InGameManager.ActivateDescription(true);
-                InGameManager.GameUI.FactsController.SetText(gotComponent.Description);
+                InGameManager.GameUI.FactsController.SetFact(gotComponent);
                 InGameManager.GameUI.FactsController.ShowFact();
             }
             Destroy(gotComponent.gameObject);
@@ -166,6 +175,7 @@ public class CanonController : MonoBehaviour
 
         if(other.gameObject.tag == "Key" && InGameManager.CanUseGameControls)
         {
+            SoundManager.LoadSoundEffect(SoundManager.SFX.GotKey);
             InGameManager.MainCanvas.FadePanelWindow.SetGotKeyAnimation();
             InGameManager.PlayerHasKey = true;
             Destroy(other.gameObject);
@@ -173,7 +183,6 @@ public class CanonController : MonoBehaviour
 
         if(other.gameObject.tag == "Enemy" && !InGameManager.PlayerIsDamaged)
         {
-            Debug.Log("Player Damaged");
             InGameManager.PlayerIsDamaged = true;
             _hp--;
             if(_hp <= 0)

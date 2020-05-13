@@ -10,9 +10,11 @@ public class ButtonController : MonoBehaviour
         Controls,
         GameControls,
         Credits,
+        Next,
         Resume,
         Confirm,
         ConfirmControls,
+        ConfirmTutorial,
         GoMenu,
         ExitGame
     }
@@ -34,6 +36,7 @@ public class ButtonController : MonoBehaviour
     {
         IsInteractable = false;
         CanvasAnimator.SetBool("Fade", false);
+        SoundManager.LoadSoundEffect(SoundManager.SFX.ButtonClic);
 
         switch (_buttonOption)
         {
@@ -72,24 +75,33 @@ public class ButtonController : MonoBehaviour
                 StartCoroutine(InGameManager.SetFade(InGameManager.FadeOperation.In, _objectToShow));
                 break;
 
+            case Option.Next:
+                InGameManager.GameUI.TutorialController.LoadTutorialNextPart();
+                break;
+
             case Option.Resume:
                 InGameManager.ResumeGame();
                 break;
 
             case Option.Confirm:
                 StartCoroutine(InGameManager.SetFade(InGameManager.FadeOperation.Out, gameObject));
-                _titleToShow.GetComponent<TitleController>().SetFade("Out");
-                _titleToShow.SetActive(false);
+
+                if(_titleToShow != null)
+                {
+                    _titleToShow.GetComponent<TitleController>().SetFade("Out");
+                    _titleToShow.SetActive(false);
+                }
+                else
+                {
+                    InGameManager.ActivateDescription(false);
+                    InGameManager.GameUI.FactsController.HideFact();
+                }
 
                 if (_buttonToShow != null)
                 {
                     StartCoroutine(_buttonToShow.GetComponent<ButtonController>().SetInteractAtAble());
                     StartCoroutine(InGameManager.SetFade(InGameManager.FadeOperation.In, _buttonToShow));
                     _buttonToShow.GetComponent<ButtonController>().CanvasAnimator.SetBool("Fade", true);
-                }
-                else
-                {
-                    InGameManager.ActivateDescription(false);
                 }
 
                 if (_objectToShow != null)
@@ -107,6 +119,10 @@ public class ButtonController : MonoBehaviour
                 StartCoroutine(_objectToShow.GetComponent<ImageController>().DeactivateImage());
                 StartCoroutine(InGameManager.SetFade(InGameManager.FadeOperation.Out, _objectToShow));
                 InGameManager.GameUI.PauseController.SetPauseFade("In");
+                break;
+
+            case Option.ConfirmTutorial:
+                InGameManager.EndTutorial();
                 break;
 
             case Option.GoMenu:

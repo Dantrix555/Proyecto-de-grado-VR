@@ -15,9 +15,13 @@ MonoBehaviour:
   id: 0
   name: Hipoclorito de sodio
   formula: NaClO
-  description: "El hipoclorito de sodio, normalmente conocio por verse en productos
-    de limpieza, es muy bueno matando las bacterias. Su formula qu\xEDmica es el NaClO"
+  description: "El hipoclorito de sodio, normalmente conocido por su formula qu\xEDmica
+    NaClO, es un compuesto altamente oxidante, usado en productos como desinfectantes
+    y blanqueadores."
+  useDescription: Has absorbido una botella de hipoclorito de sodio (NaClO). Dispara
+    una gota de este compuesto que sirve para atacar a las bacterias que te persigan.
   componentObject: {fileID: 4789972079127068544, guid: b26570423328d8b4786739b24795e86f,
     type: 3}
+  imageDescription: {fileID: 2100000, guid: fc0bdb7243e492b4bae3fde6da302bdf, type: 2}
   shotObject: {fileID: 7816557169473730349, guid: b2c77b5a9e31c91488ac349de1312ae4,
     type: 3}

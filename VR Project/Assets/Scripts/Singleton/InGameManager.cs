@@ -57,6 +57,13 @@ public class InGameManager : CHEMSingleton<InGameManager>
                 _spawnerControllers[i].SpawnComponent();
             }
         }
+
+        //Set the game tutorial if player is in the first level
+        if (SceneManager.GetActiveScene().name == Level.Level_01.ToString())
+            SetTutorial();
+        //Set the menu music (because the project has only the menu scene and first level scene)
+        else
+            SoundManager.SetBackgroundMusic(SoundManager.Music.Menu);
     }
 
     //Operation is a variable that takes 2 values in or out, to determine the fade effect
@@ -99,6 +106,7 @@ public class InGameManager : CHEMSingleton<InGameManager>
 
     public static IEnumerator TeleportPlayerToPortal(Vector3 teleportPosition, GameObject player)
     {
+        SoundManager.SetBackgroundMusic(SoundManager.Music.Finished);
         CanUseGameControls = false;
         yield return new WaitForSeconds(0.5f);
         player.transform.position = teleportPosition;
@@ -108,6 +116,7 @@ public class InGameManager : CHEMSingleton<InGameManager>
 
     public static IEnumerator TeleportPlayer(Vector3 teleportPosition, Vector3 playerNewRotation, GameObject player)
     {
+        SoundManager.LoadSoundEffect(SoundManager.SFX.Teletransportation);
         CanUseGameControls = false;
         yield return new WaitForSeconds(0.5f);
         player.transform.position = teleportPosition;
@@ -122,6 +131,7 @@ public class InGameManager : CHEMSingleton<InGameManager>
         MainCanvas.FadePanelWindow.SetPauseFade(true);
         GameUI.PauseController.SetPauseFade("In");
         IsGamePaused = true;
+        SoundManager.SetBackgroundMusic(SoundManager.Music.Pause);
     }
 
     public static void ResumeGame()
@@ -133,6 +143,7 @@ public class InGameManager : CHEMSingleton<InGameManager>
             GameUI.ControlPanel.FadeOutControlPanel();
         SetScenarioActive(true);
         IsGamePaused = false;
+        SoundManager.SetBackgroundMusic(SoundManager.Music.InGame);
     }
 
     public static void ActivateDescription(bool activationState)
@@ -151,6 +162,7 @@ public class InGameManager : CHEMSingleton<InGameManager>
         SetScenarioActive(false);
         GameUI.GameOverController.SetGameOver();
         MainCanvas.FadePanelWindow.SetGameOverFade();
+        SoundManager.SetBackgroundMusic(SoundManager.Music.GameOver);
     }
 
     public static void SetFinishedGame()
@@ -178,5 +190,26 @@ public class InGameManager : CHEMSingleton<InGameManager>
         {
             Instance._scenarioParentObjects[i].SetActive(activationState);
         }
+    }
+
+    private void SetTutorial()
+    {
+        //Deactivate scenario and set tutorial description
+        _canUseGameControls = false;
+        _isInDescription = true;
+        SetScenarioActive(false);
+        _gameUi.TutorialController.StartTutorial();
+        MainCanvas.FadePanelWindow.SetPauseFade(true);
+        SoundManager.SetBackgroundMusic(SoundManager.Music.Pause);
+    }
+
+    public static void EndTutorial()
+    {
+        GameUI.TutorialController.EndTutorial();
+        CanUseGameControls = true;
+        IsInDescription = false;
+        SetScenarioActive(true);
+        MainCanvas.FadePanelWindow.SetPauseFade(false);
+        SoundManager.SetBackgroundMusic(SoundManager.Music.InGame);
     }
 }

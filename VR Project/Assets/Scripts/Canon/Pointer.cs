@@ -109,11 +109,11 @@ public class Pointer : MonoBehaviour
                     if(hit.collider.gameObject.GetComponent<DestructableObject>().WeaknessComponent.ToString() == _currentComponent)
                     {
                         endLineColor = Color.green;
-                        _currentText = "Derribar";
+                        _currentText = "Derretir";
                     }
                     else
                     {
-                        endLineColor = Color.gray;
+                        endLineColor = Color.red;
                         _currentText = "Busca " + hit.collider.gameObject.GetComponent<DestructableObject>().WeaknessComponent.ToString();
                     }
                     break;
@@ -137,12 +137,12 @@ public class Pointer : MonoBehaviour
                     if(InGameManager.PlayerHasKey)
                     {
                         endLineColor = Color.green;
-                        _currentText = "Busca la llave";
+                        _currentText = "Abrir";
                     }
                     else
                     {
                         endLineColor = Color.gray;
-                        _currentText = "Abrir";
+                        _currentText = "Busca la llave";
                     }
                     break;
                 case "Portal":

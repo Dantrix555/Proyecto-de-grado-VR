@@ -15,9 +15,14 @@ MonoBehaviour:
   id: 2
   name: "\xC1cido Borico"
   formula: H3BO3
-  description: "El \xE1cido b\xF3rico, H3BO3, se utiliza en los insecticidas, ya sabes
-    que significa si ves uno cerca."
+  description: "El \xE1cido b\xF3rico, H3BO3, es un compuesto qu\xEDmico en forma
+    de peque\xF1os cristales levemente \xE1cidos, que se usa para la producci\xF3n
+    de insecticidas y antis\xE9pticos."
+  useDescription: "Has absorbido \xE1cido b\xF3rico, mejor conocido como H3BO3. Ahora
+    puedes disparar peque\xF1as bolsas de insecticidas para destruir a los insectos
+    que se encuentren merodeando cerca tuyo."
   componentObject: {fileID: 4290612005291492377, guid: 272c37d0dfc07624aa23849f955f227f,
     type: 3}
+  imageDescription: {fileID: 2100000, guid: be68c1fc5e723b44f838ca7ed37a3a6b, type: 2}
   shotObject: {fileID: 1393133228802036669, guid: 833855e05a728ae409c0666ffa8a5cc3,
     type: 3}

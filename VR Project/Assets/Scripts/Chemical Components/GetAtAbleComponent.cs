@@ -4,19 +4,23 @@ using UnityEngine;
 
 public class GetAtAbleComponent : MonoBehaviour
 {
-    private int id = default;
-    private string formula = default;
-    private string description = default;
-    private GameObject shotComponentPrefab = default;
+    private int _id = default;
+    private string _formula = default;
+    private string _description = default;
+    private string _useDescription = default;
+    private Material _imageDescription = default;
+    private GameObject _shotComponentPrefab = default;
 
-    public int Id { get => id; set => id = value; }
-    public string Formula { get => formula; set => formula = value; }
-    public string Description { get => description; set => description = value; }
-    public GameObject ShotComponentPrefab { get => shotComponentPrefab; set => shotComponentPrefab = value; }
+    public int Id { get => _id; set => _id = value; }
+    public string Formula { get => _formula; set => _formula = value; }
+    public string Description { get => _description; set => _description = value; }
+    public string UseDescription { get => _useDescription; set => _useDescription = value; }
+    public Material ImageDescription { get => _imageDescription; set => _imageDescription = value; }
+    public GameObject ShotComponentPrefab { get => _shotComponentPrefab; set => _shotComponentPrefab = value; }
 
     public void RespawnComponent()
     {
-        GetComponentInParent<SpawnerController>().Invoke("SpawnComponent", 10);
+        GetComponentInParent<SpawnerController>().Invoke("SpawnComponent", 20);
     }
 
 }

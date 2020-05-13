@@ -73,14 +73,19 @@ public class EnemyController : DestructableObject
             _enemyLife -= 3;
 
             if(_enemyLife <= 0)
+            {
+                SoundManager.LoadSoundEffect(SoundManager.SFX.EnemyDestroyed);
                 SetDestroyAnimation();
+            }
             else
             {
+                SoundManager.LoadSoundEffect(SoundManager.SFX.EnemyCorrectHit);
                 SetDamageAnimation();
                 Invoke("SetEnemyDamagable", 0.5f);
             }
         }
-
+        else if(collisionGameObject.tag == "Shot" && !(collisionGameObject.GetComponent<ShotableComponent>().ComponentFormula == WeaknessComponent.ToString()))
+            SoundManager.LoadSoundEffect(SoundManager.SFX.EnemyFailHit);
     }
 
     private void SetEnemyDamagable()

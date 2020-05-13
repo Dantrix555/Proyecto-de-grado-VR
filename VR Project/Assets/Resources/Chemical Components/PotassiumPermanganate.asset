@@ -16,9 +16,13 @@ MonoBehaviour:
   name: Permanganato de potasio
   formula: KMnO4
   description: "El permanganato de potasio, tambi\xE9n conocido como KMnO4, sirve
-    para potabilizar el agua por su alto poder oxidante, usalo cuando veas charcos
-    con insectos alrededor"
+    para potabilizar el agua y para lavados g\xE1stricos cuando una persona sufre
+    por una intoxicaci\xF3n, todo esto por ser un poderoso oxidante."
+  useDescription: "Has absorbido permanganato de potasio o KMnO4. Ahora puedes disparar
+    peque\xF1os fragmentos de este compuesto, que te servir\xE1n para purificar los
+    pisos con agua lodosa."
   componentObject: {fileID: 5644299953053622717, guid: 43ec0e17faed3bc4eb68362fc76bb25e,
     type: 3}
+  imageDescription: {fileID: 2100000, guid: e146476794aa13c4b8da165f7a5f0d95, type: 2}
   shotObject: {fileID: 4621448618248627025, guid: d8471546feade97499d22739b232d983,
     type: 3}

@@ -1,0 +1,36 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 505c7f58c7ada3241a7e67d1cd941bb4, type: 3}
+  m_Name: GameAudioAsset
+  m_EditorClassIdentifier: 
+  inGameMusic: {fileID: 8300000, guid: f083464b0f2670044bb3d896a7c384c0, type: 3}
+  menuMusic: {fileID: 8300000, guid: b08ffa8ee23f9ee4ba3f59badf5fd5c6, type: 3}
+  pauseMusic: {fileID: 8300000, guid: 235e1738c7834904ba48d2c37d4284e9, type: 3}
+  gameOver: {fileID: 8300000, guid: 4a68d3e0d4c6c3c4b96524bc81ba1776, type: 3}
+  gameFinished: {fileID: 8300000, guid: d3fc863e9c741f64fb8261e05daa295b, type: 3}
+  buttonClic: {fileID: 8300000, guid: cbfabecfab0792b479cbc779a5437a99, type: 3}
+  objectAbsorption: {fileID: 8300000, guid: fcac8449daa494e4eb8c6a2b6286b250, type: 3}
+  shoot: {fileID: 8300000, guid: 1ffcdf3466ca3274997f95eac86c2013, type: 3}
+  shotHitScenario: {fileID: 8300000, guid: 86c31b36fcf050449b62697cf8781162, type: 3}
+  enemyCorrectHit: {fileID: 8300000, guid: 37e67c4bfdae08740b05528fbde4231c, type: 3}
+  enemyFailHit: {fileID: 8300000, guid: 3f0c66caf09fbc2419f753ee96e66514, type: 3}
+  enemyDestroyed: {fileID: 8300000, guid: 69c8dc0c97ee9784fb8a8e9e5aaf9ced, type: 3}
+  gotComponent: {fileID: 8300000, guid: bce0bdcbf036e4e489fb0356ddc9e68f, type: 3}
+  gotKey: {fileID: 8300000, guid: 9f787cc4192b91649915c90d38362b82, type: 3}
+  canOpenDoor: {fileID: 8300000, guid: c1f00b2fa22372343af6941edb5e0c97, type: 3}
+  cantOpenDoor: {fileID: 8300000, guid: 11fcd1c7a42c72b4681b84ff2f8e28c7, type: 3}
+  canDestroyWall: {fileID: 8300000, guid: 3d94acc14c3c61c4f80c4e5e0e8f7568, type: 3}
+  cantDestroyWall: {fileID: 8300000, guid: ff8d88a1d2e74dd42b8514795f7ae790, type: 3}
+  canPurifyWater: {fileID: 8300000, guid: db7e69f4714cf1947a019d5b2a32709a, type: 3}
+  cantPurifyWater: {fileID: 8300000, guid: 2ff89f25a3bf8a8449cca457259b10c6, type: 3}
+  spawnComponent: {fileID: 8300000, guid: 3dc638fe2cee6d04faa6ec7554ea040d, type: 3}
+  teletransportation: {fileID: 8300000, guid: f0ca43e183a37164ea08c631b616524b, type: 3}

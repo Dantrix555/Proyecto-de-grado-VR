@@ -15,9 +15,14 @@ MonoBehaviour:
   id: 3
   name: Propilenglicol
   formula: C3H8O2
-  description: El propilenglicol es un alcohol (exactamente un diol, con formula C3H8O2)
-    que se usa en productos anticongelantes, usalo si ves algo congelado a tu alrededor
+  description: "El propilenglicol es un compuesto org\xE1nico y alcohol, exactamente
+    un diol, es utilizado en lubricantes, humectantes y como un anticongelante de
+    alimentos y de carros."
+  useDescription: "Has absorbido un gal\xF3n de propilenglicol (C3H8O2), podr\xE1s
+    disparar gotas de este compuesto que te ayudar\xE1n a destruir las barreras de
+    hielo que bloqueen tu camino."
   componentObject: {fileID: 6147217031332063590, guid: b29eb3c9cb6a82947934a2b4ceea9a3b,
     type: 3}
+  imageDescription: {fileID: 2100000, guid: f96bca1db2729b74b81307d6cf10f499, type: 2}
   shotObject: {fileID: 2668881715635491943, guid: f5c0027cbafa23f4282b581205f73eaa,
     type: 3}
