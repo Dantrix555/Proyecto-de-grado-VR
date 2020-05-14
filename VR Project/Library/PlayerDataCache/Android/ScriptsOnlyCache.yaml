@@ -46,7 +46,6 @@ ScriptsOnlyBuild:
     - UnityEditor.Graphs.AnimatorControllerTool
     UnityEditor.TestRunner.dll:
     - UnityEditor.TestTools.TestRunner.Api.CallbacksHolder
-    - UnityEditor.TestTools.TestRunner.TestListCacheData
     UnityEngine.UI.dll:
     - UnityEngine.EventSystems.EventSystem
     - UnityEngine.EventSystems.StandaloneInputModule
@@ -135,45 +134,45 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 11796}
     - Class: 114
-      Script: {instanceID: 11930}
+      Script: {instanceID: 11798}
     - Class: 114
-      Script: {instanceID: 11960}
+      Script: {instanceID: 11932}
     - Class: 114
-      Script: {instanceID: 11982}
+      Script: {instanceID: 11962}
     - Class: 114
-      Script: {instanceID: 12110}
+      Script: {instanceID: 11984}
     - Class: 114
-      Script: {instanceID: 12246}
+      Script: {instanceID: 12112}
     - Class: 114
-      Script: {instanceID: 12718}
+      Script: {instanceID: 12216}
     - Class: 114
-      Script: {instanceID: 12846}
+      Script: {instanceID: 12250}
     - Class: 114
-      Script: {instanceID: 13012}
+      Script: {instanceID: 12722}
     - Class: 114
-      Script: {instanceID: 13106}
+      Script: {instanceID: 12850}
     - Class: 114
-      Script: {instanceID: 13236}
+      Script: {instanceID: 13016}
     - Class: 114
-      Script: {instanceID: 13242}
+      Script: {instanceID: 13110}
     - Class: 114
-      Script: {instanceID: 13256}
+      Script: {instanceID: 13240}
     - Class: 114
-      Script: {instanceID: 13304}
+      Script: {instanceID: 13246}
     - Class: 114
-      Script: {instanceID: 13474}
+      Script: {instanceID: 13260}
     - Class: 114
-      Script: {instanceID: 13904}
+      Script: {instanceID: 13308}
     - Class: 114
-      Script: {instanceID: 14046}
+      Script: {instanceID: 13478}
     - Class: 114
-      Script: {instanceID: 14054}
+      Script: {instanceID: 13908}
     - Class: 114
-      Script: {instanceID: 14162}
+      Script: {instanceID: 14050}
     - Class: 114
-      Script: {instanceID: 42328}
+      Script: {instanceID: 14058}
     - Class: 114
-      Script: {instanceID: 42342}
+      Script: {instanceID: 14166}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 120
@@ -274,39 +273,39 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 11796}
     - Class: 114
-      Script: {instanceID: 11982}
+      Script: {instanceID: 11798}
     - Class: 114
-      Script: {instanceID: 12110}
+      Script: {instanceID: 11984}
     - Class: 114
-      Script: {instanceID: 12246}
+      Script: {instanceID: 12112}
     - Class: 114
-      Script: {instanceID: 12718}
+      Script: {instanceID: 12216}
     - Class: 114
-      Script: {instanceID: 12846}
+      Script: {instanceID: 12250}
     - Class: 114
-      Script: {instanceID: 13106}
+      Script: {instanceID: 12722}
     - Class: 114
-      Script: {instanceID: 13242}
+      Script: {instanceID: 12850}
     - Class: 114
-      Script: {instanceID: 13256}
+      Script: {instanceID: 13110}
     - Class: 114
-      Script: {instanceID: 13304}
+      Script: {instanceID: 13246}
     - Class: 114
-      Script: {instanceID: 13336}
+      Script: {instanceID: 13260}
     - Class: 114
-      Script: {instanceID: 13434}
+      Script: {instanceID: 13308}
     - Class: 114
-      Script: {instanceID: 13474}
+      Script: {instanceID: 13340}
     - Class: 114
-      Script: {instanceID: 13904}
+      Script: {instanceID: 13438}
     - Class: 114
-      Script: {instanceID: 14046}
+      Script: {instanceID: 13478}
     - Class: 114
-      Script: {instanceID: 14054}
+      Script: {instanceID: 13908}
     - Class: 114
-      Script: {instanceID: 42328}
+      Script: {instanceID: 14050}
     - Class: 114
-      Script: {instanceID: 42342}
+      Script: {instanceID: 14058}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 120
@@ -1070,6 +1069,12 @@ ScriptsOnlyBuild:
     className: ShotableComponent
   - hash:
       serializedVersion: 2
+      Hash: 560e20f038f6c5257fc84d53e80c230c
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: SoundManager
+  - hash:
+      serializedVersion: 2
       Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
     assemblyName: Oculus.VR.dll
     namespaceName: 
@@ -1260,6 +1265,12 @@ ScriptsOnlyBuild:
     assemblyName: Assembly-CSharp.dll
     namespaceName: OVRTouchSample
     className: Hand
+  - hash:
+      serializedVersion: 2
+      Hash: b0b918520ce9092087bd81654664de61
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: AudioAsset
   - hash:
       serializedVersion: 2
       Hash: 0182aac3fd8bfdeff27021b9548c3a6a
@@ -1998,18 +2009,6 @@ ScriptsOnlyBuild:
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
     className: PlayableTrack
-  - hash:
-      serializedVersion: 2
-      Hash: 560e20f038f6c5257fc84d53e80c230c
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: SoundManager
-  - hash:
-      serializedVersion: 2
-      Hash: b0b918520ce9092087bd81654664de61
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: AudioAsset
   platform: 13
   scenePathNames:
   - Assets/Scenes/MainMenu.unity
